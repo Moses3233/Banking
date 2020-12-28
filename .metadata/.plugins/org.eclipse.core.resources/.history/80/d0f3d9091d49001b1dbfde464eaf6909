@@ -1,0 +1,10 @@
+package com.myBank.userProfiles;
+
+public class standardUser {
+String username, password, firstName, lastName,email;
+
+
+public standardUser() {}
+
+
+}
