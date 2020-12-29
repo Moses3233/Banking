@@ -1,0 +1,15 @@
+package com.myBank.main;
+
+import java.util.Scanner;
+
+public class bankAppMain {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int welcomeOption;
+		System.out.println("Welcome to the Bank! Do you already have an account with us?\nType \"1\" for yes or \"2\" for no.\nPress\"3\" to exit now");
+		welcomeOption = ;
+	}
+
+}

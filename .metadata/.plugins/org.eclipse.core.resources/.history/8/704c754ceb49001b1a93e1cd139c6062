@@ -1,0 +1,13 @@
+package com.myBank.DAO;
+
+import com.myBank.model.accounts;
+
+public interface bankCustomerDAO {
+
+
+	public accounts viewAccount(int acctNumber);
+	public int postTransfer(String sender, String recipient);
+	public int acceptTransfer(int transNum);
+	
+	
+}

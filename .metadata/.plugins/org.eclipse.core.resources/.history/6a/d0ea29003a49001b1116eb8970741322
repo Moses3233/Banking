@@ -1,0 +1,13 @@
+package com.myBank.model;
+
+public class users {
+String username, password, firstName, lastName,email;
+
+
+public users() {}
+
+public void withdrawFunds(int amount) {}
+public void depositFunds(int amount) {}
+public void transferFunds(users recipient, int amount) {}
+
+}

@@ -1,0 +1,8 @@
+1609179292338	Rename package 'com.myBank.userProfiles'
+1609179313465	Delete element
+1609179705820	Rename type 'standardUser'
+1609190118563	Rename package 'com.myBank.dbConnection'
+1609190221533	Move compilation unit
+1609198786499	Rename type 'bankAppDAO'
+1609199189984	Encapsulate field 'status'
+1609256565360	Delete element

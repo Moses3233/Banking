@@ -1,0 +1,15 @@
+package com.myBank.DAO;
+
+import com.myBank.model.accounts;
+
+public interface bankAccountDAO {
+
+	public int createAccount(accounts account);
+	public void deleteAccount(int acctNumber);
+	public accounts viewBalance(int acctNumber);
+	public int accountWithdrawl(int acctNumber, double amount);
+	public int accountDeposit(int acctNumber, double amount);
+	
+	
+	
+}

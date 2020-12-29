@@ -1,0 +1,9 @@
+package com.myBank.DAO;
+
+public interface bankTransferDAO {
+
+	public int postTransfer(String sender, String recipient);
+	public int acceptTransfer(int transNum);
+	
+	
+}

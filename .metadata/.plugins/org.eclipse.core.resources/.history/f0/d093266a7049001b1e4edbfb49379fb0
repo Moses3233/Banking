@@ -1,0 +1,9 @@
+package com.myBank.DAO;
+
+public interface bankUserDAO {
+
+	
+public void employeeLogin(String username, String password);
+public void customerLogin(String username, String password);
+
+}

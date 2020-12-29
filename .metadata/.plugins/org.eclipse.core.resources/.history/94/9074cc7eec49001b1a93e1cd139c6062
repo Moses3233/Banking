@@ -1,0 +1,9 @@
+package com.myBank.DAO;
+
+import com.myBank.model.accounts;
+
+public interface bankAccountDAO {
+
+	
+	
+}

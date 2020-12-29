@@ -1,0 +1,12 @@
+package com.myBank.DAO;
+
+import com.myBank.model.users;
+
+public interface bankUserDAO {
+
+public int createUser(users user);	
+public users viewAccount(String first, String last);
+public void employeeLogin(String username, String password);
+public void customerLogin(String username, String password);
+
+}

@@ -1,0 +1,8 @@
+package com.myBank.DAO;
+
+public interface bankAppDAO {
+
+	
+	
+	
+}
