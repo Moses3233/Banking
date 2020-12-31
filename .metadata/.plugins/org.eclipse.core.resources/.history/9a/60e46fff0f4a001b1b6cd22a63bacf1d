@@ -1,0 +1,15 @@
+#Here we go...
+
+log4j.rootLogger = INFO,console,transLog
+
+#Configuration for Console
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%m%n
+
+
+#Configuration for FIle
+log4j.appender.revFile=org.apache.log4j.RollingFileAppender
+log4j.appender.revFile.File=transactionLogs.log
+log4j.appender.revFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.revFile.layout.ConversionPattern={%p}  %c   %m       %d%n

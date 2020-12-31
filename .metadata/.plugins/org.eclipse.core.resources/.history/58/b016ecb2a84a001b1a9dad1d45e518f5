@@ -1,0 +1,36 @@
+package com.myBank.DAO.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.myBank.DAO.db.postgreConnection;
+import com.myBank.exceptions.BusinessException;
+import com.myBank.model.users;
+
+public class bankEmployeeDAOImpl {
+
+	public int createUser(users user) throws BusinessException {
+		int c = 0;
+		
+		try {
+			Connection connection= postgreConnection.getConnection();
+			String sql = "insert into bankApp.users(username,password,fname,lname,role,email) values(?,?,?,?,?,?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.setString(3, user.getfName());
+			preparedStatement.setString(4, user.getlName());
+			preparedStatement.setString(5, user.getRole());
+			preparedStatement.setString(6, user.getEmail());
+
+			c = preparedStatement.executeUpdate();
+		
+		} catch (ClassNotFoundException | SQLException e) {
+		throw new BusinessException("An error has occured");
+		}
+		return c;
+	}	
+	
+}

@@ -8,4 +8,5 @@
     <fullyQualifiedTypeName name="com.myBank.exceptions.BusinessException"/>
     <fullyQualifiedTypeName name="com.myBank.model.users"/>
     <fullyQualifiedTypeName name="com.myBank.model.accounts"/>
+    <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 </qualifiedTypeNameHistroy>

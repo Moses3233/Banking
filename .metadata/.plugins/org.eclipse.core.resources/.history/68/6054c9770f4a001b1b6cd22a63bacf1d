@@ -1,0 +1,8 @@
+#Here we go...
+
+log4j.rootLogger = INFO,console,transLog
+
+#Configuring the console
+
+
+#Configuring the File

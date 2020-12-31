@@ -4,7 +4,9 @@ public class users {
 private String username, password, fName, lName,role,email;
 
 
-public users() {}
+public users() {
+	
+}
 
 public users(String username, String password, String fName, String lName, String role, String email) {
 	
@@ -76,7 +78,7 @@ public void setEmail(String email) {
 }
 
 public String toString() {
-	return "[ Username: "+username+" Password: "+password+" First Name: "+fName+" Last Name: "+ lName+ " Role:" +role+ " ]";
+	return "[ Username: "+username+" Password: "+password+" First Name: "+fName+" Last Name: "+ lName+ " Role:" +role+ " E-mail: "+email+" ]";
 }
 
 }

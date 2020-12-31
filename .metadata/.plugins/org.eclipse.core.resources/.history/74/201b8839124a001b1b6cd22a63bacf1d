@@ -1,0 +1,48 @@
+package com.myBank.main;
+
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
+public class bankAppMain {
+
+	private static Logger log=Logger.getLogger(bankAppMain.class);
+
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	
+		int welcomeOption;
+		
+		log.info("Welcome to the Bank! Do you already have an account with us?");
+		
+		do {
+			
+		log.info("\nPress \"1\" for yes or \"2\" for no.\nPress \"3\" to exit now");
+		
+			welcomeOption = Integer.parseInt(sc.nextLine()) ;
+		
+		
+		switch(welcomeOption) {
+		case 1:
+			log.info("This is to log into an existing account.");
+			break;
+			
+		case 2:
+			log.info("This is to create a new account.");
+			break;
+			
+		case 3:
+			log.info("Exiting... Have a good day.");
+			System.exit(0);
+			break;
+			
+		default:
+			log.info("Not a valid option. Try again");
+		
+		}
+		
+		}while(welcomeOption!=3);
+	}
+
+}
