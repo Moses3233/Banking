@@ -1,0 +1,35 @@
+{INFO}  com.myBank.main.bankAppMain   Welcome to the Bank! Do you already have an account with us?       2020-12-31 20:20:53,714
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2020-12-31 20:20:53,715
+{INFO}  com.myBank.main.bankAppMain   This is to create a new account. Just need to ask a few questions:       2020-12-31 20:21:02,142
+{INFO}  com.myBank.main.bankAppMain   What is your new username?       2020-12-31 20:21:02,147
+{INFO}  com.myBank.main.bankAppMain   What is your new password?       2020-12-31 20:21:10,838
+{INFO}  com.myBank.main.bankAppMain   What is your first name?       2020-12-31 20:21:16,012
+{INFO}  com.myBank.main.bankAppMain   What is your last name?       2020-12-31 20:21:24,113
+{INFO}  com.myBank.main.bankAppMain   What is your email?       2020-12-31 20:21:30,542
+{INFO}  com.myBank.main.bankAppMain   An error occured while making your account       2020-12-31 20:21:51,070
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2020-12-31 20:21:51,070
+{INFO}  com.myBank.main.bankAppMain   Exiting... Have a good day.       2020-12-31 20:22:06,285
+{INFO}  com.myBank.main.bankAppMain   Welcome to the Bank! Do you already have an account with us?       2020-12-31 20:23:22,462
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2020-12-31 20:23:22,463
+{INFO}  com.myBank.main.bankAppMain   This is to create a new account. Just need to ask a few questions:       2020-12-31 20:23:26,675
+{INFO}  com.myBank.main.bankAppMain   What is your new username?       2020-12-31 20:23:26,681
+{INFO}  com.myBank.main.bankAppMain   What is your new password?       2020-12-31 20:23:45,728
+{INFO}  com.myBank.main.bankAppMain   What is your first name?       2020-12-31 20:23:54,901
+{INFO}  com.myBank.main.bankAppMain   What is your last name?       2020-12-31 20:24:10,513
+{INFO}  com.myBank.main.bankAppMain   What is your email?       2020-12-31 20:24:19,002
+{INFO}  com.myBank.main.bankAppMain   What is your new username?       2020-12-31 20:24:40,967
+{INFO}  com.myBank.main.bankAppMain   What is your new password?       2020-12-31 20:25:24,559
+{INFO}  com.myBank.main.bankAppMain   What is your first name?       2020-12-31 20:26:32,019
+{INFO}  com.myBank.main.bankAppMain   What is your last name?       2020-12-31 20:26:41,164
+{INFO}  com.myBank.main.bankAppMain   What is your email?       2020-12-31 20:26:45,335
+{INFO}  com.myBank.main.bankAppMain   Account created successfully       2020-12-31 20:26:54,438
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2020-12-31 20:26:54,438
+{INFO}  com.myBank.main.bankAppMain   Exiting... Have a good day.       2020-12-31 20:27:00,508

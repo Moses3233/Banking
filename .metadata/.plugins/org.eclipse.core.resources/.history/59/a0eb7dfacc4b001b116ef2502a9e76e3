@@ -1,0 +1,71 @@
+package com.myBank.DAO.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
+import com.myBank.DAO.db.postgreConnection;
+import com.myBank.exceptions.BusinessException;
+import com.myBank.main.bankAppMain;
+import com.myBank.model.accounts;
+import com.myBank.model.transactions;
+
+public class bankCustomerDAOImpl {
+
+	private static Logger log=Logger.getLogger(bankAppMain.class);
+
+	
+	public accounts viewAccount(int acctNumber) {
+		
+	
+		
+	}
+	
+	public int accountWithdrawl(int acctNumber, double amount) {
+		
+		
+		
+	}
+	
+	public int accountDeposit(int acctNumber, double amount) {
+		
+		
+		
+	}
+	
+	public int postTransfer(transactions newT) throws BusinessException {
+	
+		int c = 0;
+		
+		try {
+			
+			log.info("");
+			Connection connection= postgreConnection.getConnection();
+			String sql = "insert into bankapp.transactions(transnum,sender,recipient,amount,status) values(?,?,?,?,?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setInt(1, newT.getTransnum());
+			preparedStatement.setInt(2, newT.getSender());
+			preparedStatement.setInt(3, newT.getRecipient());
+			preparedStatement.setDouble(4, newT.getRecipient());
+			preparedStatement.setString(5, newT.getStatus());
+
+			c = preparedStatement.executeUpdate();
+		
+		} catch (ClassNotFoundException | SQLException e) {
+		throw new BusinessException("An error has occured");
+		}
+		return c;
+		
+	}
+	
+	public int acceptTransfer(int transNum) {
+	
+		
+		
+	}
+	
+	
+}

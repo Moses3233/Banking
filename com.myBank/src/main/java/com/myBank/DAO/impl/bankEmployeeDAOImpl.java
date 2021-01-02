@@ -17,22 +17,38 @@ import com.myBank.model.users;
 public class bankEmployeeDAOImpl {
 
 	private static Logger log=Logger.getLogger(bankAppMain.class);
+	Scanner sc = new Scanner(System.in);
 
 	
-	public int createUser(users user) throws BusinessException {
+	public int createUser() throws BusinessException {
 		int c = 0;
+		users newUser = new users();
+		
+		log.info("What is your new username?");
+		newUser.setUsername(sc.nextLine());
+		log.info("What is your new password?");
+		newUser.setPassword(sc.nextLine());
+		log.info("What is your first name?");
+		newUser.setfName(sc.nextLine());
+		log.info("What is your last name?");
+		newUser.setlName(sc.nextLine());
+		
+		newUser.setRole("Customer");
+		
+		log.info("What is your email?");
+		newUser.setEmail(sc.nextLine());
 		
 		try {
 			Connection connection= postgreConnection.getConnection();
 			String sql = "insert into bankapp.users(username,password,fname,lname,role,email) values(?,?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-			preparedStatement.setString(1, user.getUsername());
-			preparedStatement.setString(2, user.getPassword());
-			preparedStatement.setString(3, user.getfName());
-			preparedStatement.setString(4, user.getlName());
-			preparedStatement.setString(5, user.getRole());
-			preparedStatement.setString(6, user.getEmail());
+			preparedStatement.setString(1, newUser.getUsername());
+			preparedStatement.setString(2, newUser.getPassword());
+			preparedStatement.setString(3, newUser.getfName());
+			preparedStatement.setString(4, newUser.getlName());
+			preparedStatement.setString(5, newUser.getRole());
+			preparedStatement.setString(6, newUser.getEmail());
 
 			c = preparedStatement.executeUpdate();
 		
@@ -160,12 +176,24 @@ public class bankEmployeeDAOImpl {
 		
 	}
 	
-	public void customerLogin(String username, String password) throws BusinessException {
+	public void customerLogin() throws BusinessException {
+		
+		String usernameX = "";
+		String passwordX = "";
+		
+		log.info("What is your username?");
+		usernameX = sc.nextLine();
+		log.info("What is your password?");
+		passwordX = sc.nextLine();
 		
 		try {
 			Connection connection= postgreConnection.getConnection();
-			String sql = "select username, password from bankapp.users where role = Customer";
+			String sql = "select username, password from bankapp.users where role = 'Customer' AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setString(1, usernameX);
+			preparedStatement.setString(2, passwordX);
+			
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
 				log.info("Login Succeeded");

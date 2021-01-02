@@ -1,0 +1,10 @@
+{INFO}  com.myBank.main.bankAppMain   Welcome to the Bank! Do you already have an account with us?       2020-12-30 13:31:56,660
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2020-12-30 13:31:56,662
+{INFO}  com.myBank.main.bankAppMain   Logging into an existing account...
+Are you an employee(Enter "1") or a customer(Enter "2")?       2020-12-30 13:32:02,248
+{INFO}  com.myBank.main.bankAppMain   You're an employee? Got it       2020-12-30 13:32:12,151
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2020-12-30 13:32:12,151
