@@ -246,7 +246,7 @@ public class bankEmployeeDAOImpl {
 		
 		try {
 			Connection connection= postgreConnection.getConnection();
-			String sql = "select users.username, users.password, accounts.username, accounts.number from bankapp.users join bankapp.accounts on accounts.username = users.username where users.role = 'Customer' AND users.username = ? AND users.password = ?";
+			String sql = "select users.username, users.password, accounts.username, accounts.number from bankapp.users join bankapp.accounts on accounts.username = users.username where users.role = 'Customer' AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
 			preparedStatement.setString(1, usernameX);
