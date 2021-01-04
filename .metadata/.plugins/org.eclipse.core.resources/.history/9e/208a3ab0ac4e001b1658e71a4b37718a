@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -14,7 +12,6 @@ import com.myBank.DAO.db.postgreConnection;
 import com.myBank.exceptions.BusinessException;
 import com.myBank.main.bankAppMain;
 import com.myBank.model.accounts;
-import com.myBank.model.transactions;
 import com.myBank.model.users;
 
 public class bankEmployeeDAOImpl {
@@ -180,7 +177,7 @@ public class bankEmployeeDAOImpl {
 	
 		int acctNumber = 0;
 		
-		log.info("What is the account number?");
+		log.info("What is your account number?");
 		acctNumber = Integer.parseInt(sc.nextLine());
 		
 	accounts Account = null;
@@ -266,39 +263,6 @@ public class bankEmployeeDAOImpl {
 		
 		
 	}
-
-
-	
-	public List<transactions> viewTransactions(int accountNumber) throws BusinessException {
-		List<transactions> transactionLog = new ArrayList<>();
-	
-		try (Connection connection = postgreConnection.getConnection()) {
-			String sql="select transnum, sender, recipient, amount, status from bankapp.transactions where sender=? OR recipient =?";
-			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, accountNumber);
-			preparedStatement.setInt(2, accountNumber);
-			ResultSet resultSet=preparedStatement.executeQuery();
-			
-			while(resultSet.next()) {
-				transactions transEntry =new transactions();
-				transEntry.setTransnum(resultSet.getInt("transnum"));
-				transEntry.setSender(resultSet.getInt("sender"));
-				transEntry.setRecipient(resultSet.getInt("recipient"));
-				transEntry.setAmount(resultSet.getDouble("amount"));
-				transEntry.setStatus(resultSet.getString("status"));
-				transactionLog.add(transEntry);
-			}
-			if(transactionLog.size()==0)
-			{
-				throw new BusinessException("No transactions done by the customer so far");
-			}
-		}catch (ClassNotFoundException | SQLException e) {
-			throw new BusinessException("Internal error occured contact SYSADMIN ");
-		}
-		return transactionLog;
-	}
-	
-	}
 	
 	
-
+}

@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -14,7 +12,6 @@ import com.myBank.DAO.db.postgreConnection;
 import com.myBank.exceptions.BusinessException;
 import com.myBank.main.bankAppMain;
 import com.myBank.model.accounts;
-import com.myBank.model.transactions;
 import com.myBank.model.users;
 
 public class bankEmployeeDAOImpl {
@@ -23,7 +20,8 @@ public class bankEmployeeDAOImpl {
 	Scanner sc = new Scanner(System.in);
 
 	
-	public String createUser() throws BusinessException {
+	public int createUser() throws BusinessException {
+		int c = 0;
 		users newUser = new users();
 		
 		log.info("What is your new username?");
@@ -52,13 +50,12 @@ public class bankEmployeeDAOImpl {
 			preparedStatement.setString(5, newUser.getRole());
 			preparedStatement.setString(6, newUser.getEmail());
 
-			int c = preparedStatement.executeUpdate();
-		if(c!=0)
-			log.info("User added to Bank Registry");
+			c = preparedStatement.executeUpdate();
+		
 		} catch (ClassNotFoundException | SQLException e) {
 		throw new BusinessException("An error has occured");
 		}
-		return newUser.getUsername();
+		return c;
 	}	
 	
 	
@@ -68,7 +65,7 @@ public class bankEmployeeDAOImpl {
 		String acctType = "";
 		
 		do {
-		log.info("Is this a Savings or Checking? Enter 1 for \"Savings\" or 2 for \"Checking\" ");
+		log.info("What is your account number? Enter 1 for \"Savings\" or 2 for \"Checking\" ");
 		acctChoice = Integer.parseInt(sc.nextLine());
 		
 		switch(acctChoice) {
@@ -108,9 +105,6 @@ public class bankEmployeeDAOImpl {
 			preparedStatement.setString(5, "PENDING");
 
 			c = preparedStatement.executeUpdate();
-			
-			if(c!=0)
-				log.info("Account has been entered into the system! A bank employee will review to approve the account.");
 		
 		} catch (ClassNotFoundException | SQLException e) {
 		throw new BusinessException("An error has occured");
@@ -180,7 +174,7 @@ public class bankEmployeeDAOImpl {
 	
 		int acctNumber = 0;
 		
-		log.info("What is the account number?");
+		log.info("What is your account number?");
 		acctNumber = Integer.parseInt(sc.nextLine());
 		
 	accounts Account = null;
@@ -217,7 +211,7 @@ public class bankEmployeeDAOImpl {
 		
 		try {
 			Connection connection= postgreConnection.getConnection();
-			String sql = "select users.username, users.password, accounts.username, accounts.number from bankapp.users join bankapp.accounts on accounts.username = users.username where users.role = 'Employee' AND username = ? AND password = ?";
+			String sql = "select username, password from bankapp.users where role = 'Employee' AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, usernameX);
 			preparedStatement.setString(2, passwordX);
@@ -234,7 +228,7 @@ public class bankEmployeeDAOImpl {
 		
 	}
 	
-	public int customerLogin() throws BusinessException {
+	public void customerLogin() throws BusinessException {
 		
 		String usernameX = "";
 		String passwordX = "";
@@ -246,7 +240,7 @@ public class bankEmployeeDAOImpl {
 		
 		try {
 			Connection connection= postgreConnection.getConnection();
-			String sql = "select users.username, users.password, accounts.username, accounts.number from bankapp.users join bankapp.accounts on accounts.username = users.username where users.role = 'Customer' AND username = ? AND password = ?";
+			String sql = "select username, password from bankapp.users where role = 'Customer' AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
 			preparedStatement.setString(1, usernameX);
@@ -255,7 +249,6 @@ public class bankEmployeeDAOImpl {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
 				log.info("Login Succeeded");
-				return resultSet.getInt("number");
 			} else {
 				throw new BusinessException("No Customer found with entered credentials");
 			}
@@ -264,41 +257,7 @@ public class bankEmployeeDAOImpl {
 		throw new BusinessException("An error has occured");
 		}
 		
-		
-	}
-
-
-	
-	public List<transactions> viewTransactions(int accountNumber) throws BusinessException {
-		List<transactions> transactionLog = new ArrayList<>();
-	
-		try (Connection connection = postgreConnection.getConnection()) {
-			String sql="select transnum, sender, recipient, amount, status from bankapp.transactions where sender=? OR recipient =?";
-			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, accountNumber);
-			preparedStatement.setInt(2, accountNumber);
-			ResultSet resultSet=preparedStatement.executeQuery();
-			
-			while(resultSet.next()) {
-				transactions transEntry =new transactions();
-				transEntry.setTransnum(resultSet.getInt("transnum"));
-				transEntry.setSender(resultSet.getInt("sender"));
-				transEntry.setRecipient(resultSet.getInt("recipient"));
-				transEntry.setAmount(resultSet.getDouble("amount"));
-				transEntry.setStatus(resultSet.getString("status"));
-				transactionLog.add(transEntry);
-			}
-			if(transactionLog.size()==0)
-			{
-				throw new BusinessException("No transactions done by the customer so far");
-			}
-		}catch (ClassNotFoundException | SQLException e) {
-			throw new BusinessException("Internal error occured contact SYSADMIN ");
-		}
-		return transactionLog;
-	}
-	
 	}
 	
 	
-
+}
