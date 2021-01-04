@@ -1,0 +1,27 @@
+{INFO}  com.myBank.main.bankAppMain   Welcome to the Bank! Do you already have an account with us?       2021-01-04 12:19:03,743
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2021-01-04 12:19:03,744
+{INFO}  com.myBank.main.bankAppMain   Logging into an existing account...
+Are you an employee(Enter "1") or a customer(Enter "2")?       2021-01-04 12:19:48,894
+{INFO}  com.myBank.main.bankAppMain   You're an employee? Got it       2021-01-04 12:19:54,715
+{INFO}  com.myBank.main.bankAppMain   What is your username?       2021-01-04 12:19:54,720
+{INFO}  com.myBank.main.bankAppMain   What is your password?       2021-01-04 12:20:01,303
+{INFO}  com.myBank.main.bankAppMain   Error!       2021-01-04 12:20:22,083
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2021-01-04 12:20:22,084
+{INFO}  com.myBank.main.bankAppMain   Exiting... Have a good day.       2021-01-04 12:20:30,216
+{INFO}  com.myBank.main.bankAppMain   Welcome to the Bank! Do you already have an account with us?       2021-01-04 13:50:44,018
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2021-01-04 13:50:44,019
+{INFO}  com.myBank.main.bankAppMain   Logging into an existing account...
+Are you an employee(Enter "1") or a customer(Enter "2")?       2021-01-04 13:50:49,094
+{INFO}  com.myBank.main.bankAppMain   Welcome Customer! Login:       2021-01-04 13:50:55,550
+{INFO}  com.myBank.main.bankAppMain   What is your username?       2021-01-04 13:50:55,556
+{INFO}  com.myBank.main.bankAppMain   What is your password?       2021-01-04 13:51:01,042
+{INFO}  com.myBank.main.bankAppMain   Error!       2021-01-04 13:51:04,774
+{INFO}  com.myBank.main.bankAppMain   
+Enter "1" for yes or "2" for no.
+Enter "3" to exit now       2021-01-04 13:51:04,774

@@ -47,6 +47,8 @@ public class bankAppMain {
 				try {
 					daoE.employeeLogin();
 					
+					//log.info("These options need implementation");
+					
 					do {
 						log.info("Welcome Employee! Another day, another dollar! What would you like to do?");
 						log.info("1) View An Account\n2) Handle Pending Account\n3) Create Account\n4) Post Transfer\n5) Accept Transfer\n6) Exit");
@@ -81,9 +83,7 @@ public class bankAppMain {
 					case 5:
 						log.info("Ok. Logging out...");
 						break;
-						
 					default:
-						log.info("Not a valid choice. Try again.");
 						break;
 					
 					
