@@ -19,37 +19,14 @@ public class bankCustomerDAOImpl {
 	private static Logger log=Logger.getLogger(bankAppMain.class);
 	Scanner sc = new Scanner(System.in);
 	
-	public accounts viewAccount(int acctNumber) throws BusinessException {
-		accounts thisAccount = null;
-		try {
-		Connection connection= postgreConnection.getConnection();
-		String sql = "select number, username, type, balance, status from bankapp.accounts where number = ?";
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.setInt(1, acctNumber);
-		ResultSet resultSet = preparedStatement.executeQuery();
+	public accounts viewAccount(int acctNumber) {
 		
-		if (resultSet.next()) {
-			log.info("Account found! Posting details,,,");
-			thisAccount = new accounts();
-			thisAccount.setNumber(acctNumber);
-			thisAccount.setUser(resultSet.getString("username"));
-			thisAccount.setType(resultSet.getString("type"));
-			thisAccount.setBalance(resultSet.getDouble("balance"));
-			thisAccount.setStatus(resultSet.getString("status"));
-		} else {
-			throw new BusinessException("No Player found with Account Number: " + acctNumber);
-		}
+	
 		
-		} catch (ClassNotFoundException | SQLException e) {
-			throw new BusinessException("An error has occured");
-			}
-		
-		return thisAccount;
 	}
 	
 	public void accountWithdrawl(int acctNumber, double amount) throws BusinessException {
-		int c;
-		double startingBalance;
+		double startingBalance,c;
 		try {
 			Connection connection= postgreConnection.getConnection();
 			String sql = "select number, username, type, balance, status from bankapp.accounts where number = ?";
@@ -73,7 +50,7 @@ public class bankCustomerDAOImpl {
 			c = preparedStatement.executeUpdate();
 			
 			if(c!=0)
-				log.info("Successful withdrawl of "+amount+" from the account "+acctNumber+".");
+				log.info("Successful withdrawl of "+amount+" from the account.");
 			
 			} catch (ClassNotFoundException | SQLException e) {
 				throw new BusinessException("An error has occured");
@@ -82,7 +59,6 @@ public class bankCustomerDAOImpl {
 	}
 	
 	public void accountDeposit(int acctNumber, double amount) throws BusinessException {
-		int c;
 		double startingBalance;
 		
 		try {
@@ -95,21 +71,6 @@ public class bankCustomerDAOImpl {
 		startingBalance = resultSet.getDouble("balance");
 		resultSet.updateDouble("balance", startingBalance+=amount);
 		resultSet.updateRow();
-		
-		Connection connection2= postgreConnection.getConnection();
-		String sql2 = "insert into bankapp.transactions(sender,recipient,amount,status) values(?,?,?,?)";
-		PreparedStatement preparedStatement2 = connection2.prepareStatement(sql2);
-
-		preparedStatement2.setInt(2, acctNumber);
-		preparedStatement2.setInt(3, acctNumber);
-		preparedStatement2.setDouble(4, amount);
-		preparedStatement2.setString(5, "Completed");
-
-		c = preparedStatement.executeUpdate();
-		
-		if(c!=0)
-			log.info("Successful deposit of "+amount+" to the account "+acctNumber+".");
-	
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new BusinessException("An error has occured");
 			}

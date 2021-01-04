@@ -137,7 +137,7 @@ public class bankEmployeeDAOImpl {
 				switch(judge) {
 				case 1:
 					Connection connection1= postgreConnection.getConnection();
-					String sql1 = "update bankapp.accounts set status = ACTIVE where number = acctNumber";
+					String sql1 = "update bankapp.accounts set status = Approved where number = acctNumber";
 					PreparedStatement preparedStatement1 = connection1.prepareStatement(sql1);
 
 					AR = preparedStatement1.executeUpdate();
