@@ -2,7 +2,6 @@ package com.myBank.DAO.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -73,34 +72,11 @@ public class bankCustomerDAOImpl {
 		
 	}
 	
-	public void acceptTransfer() throws BusinessException {
-		int transferNum, c;
-		bankCustomerDAOImpl dao = new bankCustomerDAOImpl();
-		log.info("What is the transaction number of your transfer?");
-		transferNum = (Integer.parseInt(sc.nextLine()));
-		
-		try {
-		Connection connection= postgreConnection.getConnection();
-		String sql = "select sender, recipient, amount from bankapp.transactions where transnum = ?";
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.setInt(1, transferNum);
-
-		ResultSet tranInfo = preparedStatement.executeQuery();
-		
-		dao.accountWithdrawl(tranInfo.getInt("sender"), tranInfo.getDouble("amount"));
-		dao.accountDeposit(tranInfo.getInt("recipient"), tranInfo.getDouble("amount"));
-
-		Connection connection2= postgreConnection.getConnection();
-		String sql2 = "delete from bankapp.transactions where transnum = ?";
-		PreparedStatement preparedStatement2 = connection2.prepareStatement(sql2);
-		preparedStatement2.setInt(1, transferNum);
-
-		
-		c = preparedStatement2.executeUpdate();
-		}catch (ClassNotFoundException | SQLException e) {
-			throw new BusinessException("An error has occured");
-			}
-		
+	public int acceptTransfer(int transNum) {
 	
-	}	
+		
+		
+	}
+	
+	
 }

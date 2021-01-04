@@ -82,16 +82,8 @@ public class bankEmployeeDAOImpl {
 		}
 		}while(acctChoice!=1 && acctChoice!=2);
 		
-		
-		do {
 		log.info("What is your account's balance?");
 		startBalance = Double.parseDouble(sc.nextLine());
-		
-		if(startBalance<300.0)
-			log.info("The account cannot be opened with a starting value less than $300.");
-			
-		}while(startBalance<300.00);
-		
 
 		
 		try {
