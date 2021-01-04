@@ -49,7 +49,7 @@ public class bankAppMain {
 					daoE.employeeLogin();
 					do {
 						log.info("Welcome Employee! Another day, another dollar! What would you like to do?");
-						log.info("1) View An Account\n2) Handle Pending Account\n3) Create Account\n4) View Transactions\n5) Exit");
+						log.info("1) View An Account\n2) Handle Pending Account\n3) Create Account\n4) Post Transfer\n5) Accept Transfer\n6) Exit");
 						employeeOption = Integer.parseInt(sc.nextLine()) ;
 						
 					int customAcctNum;
@@ -70,7 +70,7 @@ public class bankAppMain {
 						newUsername = (sc.nextLine());
 						daoE.createAccount(newUsername);
 						break;
-
+						
 					case 4:
 						log.info("What is the customer's account number?");
 						customAcctNum = Integer.parseInt(sc.nextLine()) ;
