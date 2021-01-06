@@ -4,29 +4,4 @@
   <artifactId>myBankApp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>myBankApp</name>
-  
-    <properties>
-  		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
-  </properties>
-  
-    <dependencies>
-  <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-<dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>42.2.5</version>
-</dependency>
-  
-    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
-<dependency>
-    <groupId>log4j</groupId>
-    <artifactId>log4j</artifactId>
-    <version>1.2.17</version>
-</dependency>
-  
-  
-  </dependencies>
-  
-  
 </project>

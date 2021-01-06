@@ -1,0 +1,15 @@
+package myBankApp.dao;
+
+import java.util.List;
+
+import myBankApp.model.transactions;
+
+public interface bankEmployeeDAO {
+
+	public void employeeLogin();
+	public void createUser();
+	public void createAccount();
+	public void approveRejectAccount();
+	public void viewAccount();
+	public List<transactions> viewTransactions();
+}
