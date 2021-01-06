@@ -2,6 +2,7 @@ package myBankApp.dao;
 
 import java.util.List;
 
+import myBankApp.exception.BusinessException;
 import myBankApp.model.transactions;
 
 public interface bankEmployeeDAO {
@@ -11,5 +12,5 @@ public interface bankEmployeeDAO {
 	public void createAccount();
 	public void approveRejectAccount();
 	public void viewAccount();
-	public List<transactions> viewTransactions();
+	public List<transactions> viewTransactions() throws BusinessException;
 }
