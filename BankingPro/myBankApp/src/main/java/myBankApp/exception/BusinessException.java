@@ -2,7 +2,6 @@ package myBankApp.exception;
 
 public class BusinessException extends Exception {
 
-	
 	public BusinessException() {
 		super();
 		// TODO Auto-generated constructor stub
