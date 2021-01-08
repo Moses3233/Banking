@@ -25,8 +25,34 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
 	
-	public void employeeLogin() {
+	public void employeeLogin() throws BusinessException {
+		String usernameX = "";
+		String passwordX = "";
 		
+		try(Connection connection=postgresqlConnection.getConnection()){
+			
+			log.info("What is your username?");
+			usernameX = sc.nextLine();
+			log.info("What is your password going to be");
+			passwordX = sc.nextLine();
+			
+			String sql = "select * from bankApp.users where role = 'EMPLOYEE' AND username = ? AND password = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, usernameX);
+			preparedStatement.setString(2, passwordX);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+			log.info("Login succeeded! Welcome, " + usernameX);
+			}else {
+				throw new BusinessException("No employee with these credentials exist in the database");
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new BusinessException("An Internal error has occured");
+		}
+			
+			return;
 	}
 
 	public void createUser() throws BusinessException {
@@ -80,7 +106,7 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 			 c=preparedStatement.executeUpdate();
 			 
 			 if(c==1)
-				 log.info("Congratulations! You successfully created an account");
+				 log.info("Congratulations! You successfully created an account!");
 			 
 		} catch(ClassNotFoundException | SQLException e) {
 			throw new BusinessException("An Internal error has occured");
@@ -110,11 +136,12 @@ return;
 
 		do {
 		log.info("What is the starting balance?");
-		newAccount.setBalance(Double.parseDouble(sc.nextLine()));
+		startingBalance = Double.parseDouble(sc.nextLine());
 		if(startingBalance<300)
 		log.info("The starting balance cannot be lower than 300.00");
 		}while(startingBalance<300.0);
 		
+		newAccount.setBalance(startingBalance);
 		newAccount.setStatus("'PENDING'");;
 		
 		try(Connection connection=postgresqlConnection.getConnection()){
@@ -145,6 +172,9 @@ return;
 		int accountNumber = 0;
 		int c;
 		accounts pendingAccount = null;
+		
+		log.info("What is the pending account number?");
+		accountNumber = Integer.parseInt(sc.nextLine());
 		
 		try(Connection connection=postgresqlConnection.getConnection()){
 			

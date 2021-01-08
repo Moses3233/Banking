@@ -8,7 +8,7 @@ import myBankApp.model.transactions;
 
 public interface bankEmployeeDAO {
 
-	public void employeeLogin();
+	public void employeeLogin() throws BusinessException;
 	public void createUser() throws BusinessException;
 	public void createAccount() throws BusinessException;
 	public void approveRejectAccount() throws BusinessException;
