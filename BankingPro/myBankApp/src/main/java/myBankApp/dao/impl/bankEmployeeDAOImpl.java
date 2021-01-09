@@ -25,17 +25,9 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
 	
-	public void employeeLogin() throws BusinessException {
-		String usernameX = "";
-		String passwordX = "";
-		
-		try(Connection connection=postgresqlConnection.getConnection()){
-			
-			log.info("What is your username?");
-			usernameX = sc.nextLine();
-			log.info("What is your password?");
-			passwordX = sc.nextLine();
-			
+	public void employeeLogin(String usernameX, String passwordX) throws BusinessException {
+			try(Connection connection=postgresqlConnection.getConnection()){
+				
 			String sql = "select * from \"bankApp\".users where role = EMPLOYEE AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, usernameX);
@@ -86,6 +78,38 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 		}
 return;		
 	}
+	
+	public void deleteUser(String username) throws BusinessException {
+		int c = 0;
+		int c1 = 0;
+		try(Connection connection=postgresqlConnection.getConnection()){
+			String sql = "delete from \"bankApp\".users where username = ?";
+			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
+			 preparedStatement.setString(1, username);
+			 c=preparedStatement.executeUpdate();
+
+				try(Connection connection1=postgresqlConnection.getConnection()){
+					String sql1 = "delete from \"bankApp\".accounts where username = ?";
+					PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
+					preparedStatement1.setString(1, username);
+					c1=preparedStatement1.executeUpdate();
+
+				} catch(ClassNotFoundException | SQLException e) {
+					throw new BusinessException("An Internal error has occured");
+				}
+			 
+			 
+		if(c==1)
+				log.info("You successfully deleted the user.");
+		if(c1==1) {
+				log.info("The account(s) under the user has been deleted");
+					 }
+		
+		} catch(ClassNotFoundException | SQLException e) {
+			throw new BusinessException("An Internal error has occured");
+		}
+return;		
+	}
 
 	public void createAccount(accounts newAccount) throws BusinessException {
 		int c = 0;
@@ -113,17 +137,32 @@ return;
 return;	
 	}
 
-	public void approveRejectAccount() throws BusinessException {
+	public void deleteAccount(int accountNumber) throws BusinessException {
+		int c = 0;
+
+		try(Connection connection=postgresqlConnection.getConnection()){
+			String sql = "delete from \"bankApp\".accounts where acctnum = ?";
+			PreparedStatement preparedStatement= connection.prepareStatement(sql);
+			preparedStatement.setInt(1, accountNumber);
+			c=preparedStatement.executeUpdate();
+			 
+			 if(c==1) {
+					log.info("The account has been deleted");
+			 }
+		} catch(ClassNotFoundException | SQLException e) {
+			throw new BusinessException("An Internal error has occured");
+		}
+		
+return;	
+	}
+
+	public void approveRejectAccount(int accountNumber) throws BusinessException {
+		
 		int pendingChoice = 0;
-		int accountNumber = 0;
 		int c;
 		accounts pendingAccount = null;
-		
-		log.info("What is the pending account number?");
-		accountNumber = Integer.parseInt(sc.nextLine());
-		
+
 		try(Connection connection=postgresqlConnection.getConnection()){
-			
 			String sql = "select * from \"bankApp\".accounts where acctnum = ? AND status = 'PENDING'";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
@@ -145,7 +184,7 @@ return;
 			if(pendingChoice == 1) {
 				Connection connection1=postgresqlConnection.getConnection();
 					String sql1 = "update \"bankApp\".accounts set status='ACTIVE' where acctnum = ?";
-					PreparedStatement preparedStatement1= connection1.prepareStatement(sql);
+					PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
 					preparedStatement1.setInt(1, accountNumber);
 					c = preparedStatement1.executeUpdate(sql1);
 					if (c==1)
@@ -155,7 +194,7 @@ return;
 			else{
 				Connection connection1=postgresqlConnection.getConnection();
 				String sql1 = "delete from \"bankApp\".accounts where acctnum = ?";
-				PreparedStatement preparedStatement1= connection1.prepareStatement(sql);
+				PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
 				preparedStatement1.setInt(1, accountNumber);
 				c = preparedStatement1.executeUpdate(sql1);
 				if (c==1)
@@ -173,44 +212,46 @@ return;
 			return;
 	}
 
-	public accounts viewAccount() throws BusinessException {
+	public List<accounts> viewAccounts(String username) throws BusinessException {
 		
-		int accountNumber = 0;
-		accounts oneAccount = null;
+		List<accounts> AccountList = new ArrayList<>();
 		
 		try(Connection connection=postgresqlConnection.getConnection()){
 			
-			String sql = "select * from \"bankApp\".accounts where acctnum = ?";
+			String sql = "select * from \"bankApp\".accounts where username = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, accountNumber);
+			preparedStatement.setString(1, username);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			if(resultSet.next()) {
-			oneAccount = new accounts();
-			oneAccount.setAcctnum(accountNumber);
-			oneAccount.setUsername(resultSet.getString("username"));
+			while(resultSet.next()) {
+			accounts oneAccount = new accounts();
+			oneAccount.setAcctnum(resultSet.getInt("acctnum"));
+			oneAccount.setUsername(username);
 			oneAccount.setType(resultSet.getString("type"));
 			oneAccount.setBalance(resultSet.getDouble("balance"));
 			oneAccount.setStatus(resultSet.getString("status"));
 			oneAccount.toString();
-			
-			}else {
-				throw new BusinessException("No account with the number: " + accountNumber);
 			}
 			
-		} catch (ClassNotFoundException | SQLException e) {
+			if(AccountList.size()==0) {
+				throw new BusinessException("No account(s) under the username: " + username);
+			}
+			
+		}catch (ClassNotFoundException | SQLException e) {
 			throw new BusinessException("An Internal error has occured");
 		}
 			
-			return oneAccount;	
+			return AccountList;	
 	}
 
-	public List<transactions> viewTransactions() throws BusinessException {
+	public List<transactions> viewTransactions(int accountNumber) throws BusinessException {
 
 		List<transactions> TransactionList = new ArrayList<>();
 		try(Connection connection=postgresqlConnection.getConnection()){
 			String sql = "select * from \"bankApp\".transactions where sender = ? or recipient = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, accountNumber);
+			preparedStatement.setInt(2, accountNumber);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
@@ -221,10 +262,11 @@ return;
 				tranEntry.setRecipient(resultSet.getInt("recipient"));
 				tranEntry.setAmount(resultSet.getInt("amount"));
 				tranEntry.setDate(resultSet.getDate("date"));
+				tranEntry.setStatus(resultSet.getString("status"));
 				TransactionList.add(tranEntry);
 			}
 			if(TransactionList.size()==0){
-				throw new BusinessException("No Transactions in the database");
+				throw new BusinessException("No Transactions in the database for the account number: " + accountNumber);
 			}
 			} catch (ClassNotFoundException | SQLException e) {
 				throw new BusinessException("An Internal error has occured");

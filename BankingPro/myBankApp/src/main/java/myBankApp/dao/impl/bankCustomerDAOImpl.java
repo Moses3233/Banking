@@ -21,20 +21,12 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
 
-	public void customerLogin() throws BusinessException {
-		
-		String usernameX = "";
-		String passwordX = "";
-		
-		try {
+	public int customerLogin(String usernameX, String passwordX) throws BusinessException {
+		int loginAcctNum = 0;
+		try {		
 			try(Connection connection=postgresqlConnection.getConnection()){
-				
-				log.info("What is your username?");
-				usernameX = sc.nextLine();
-				log.info("What is your password going to be");
-				passwordX = sc.nextLine();
-				
-				String sql = "select * from \"bankApp\".users where role = CUSTOMER AND username = ? AND password = ?";
+
+				String sql = "SELECT u.username, u.\"password\", u.role, a.acctnum FROM \"bankApp\".users u join \"bankApp\".accounts a on a.username = u.username where role = CUSTOMER AND username = ? AND password = ?";
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setString(1, usernameX);
 				preparedStatement.setString(2, passwordX);
@@ -42,7 +34,10 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 				
 				try {
 					if(resultSet.next()) {
+					loginAcctNum = resultSet.getInt("acctnum");
 					log.info("Login succeeded! Welcome, " + usernameX);
+					log.info(loginAcctNum);
+		              
 					}else {
 						throw new BusinessException("No customer with these credentials exist in the database");
 					}
@@ -54,8 +49,7 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 			}
 		} catch (BusinessException e) {
 		}
-		
-		return;
+		return loginAcctNum;
 	}
 
 	public void postTransfer(int accountNumber) throws BusinessException {
@@ -114,6 +108,7 @@ return;
 
 	public void acceptTransfer() throws BusinessException {
 		int transactionNum = 0;
+		transactions oneTran = new transactions();
 		
 		log.info("What is the transfer number?");
 		transactionNum = Integer.parseInt(sc.nextLine());
@@ -155,10 +150,15 @@ return;
 			log.info("Recipient account has been updated!");
 			
 			//Transaction information	
-			String sql3 = "update \"bankApp\".transactions set status = COMPLETED where transnum = ?";
+			String sql3 = "insert into \"bankApp\".transactions(acctnum, username, type, balance, status) values(?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
-			preparedStatement3.setInt(1, transactionNum);
-			int c2 = preparedStatement3.executeUpdate();
+			 preparedStatement3.setInt(1, rand.nextInt(1000000)+1);
+			 preparedStatement3.setString(2, oneTran.getType());
+			 preparedStatement3.setInt(3, oneTran.getSender());
+			 preparedStatement3.setInt(4, oneTran.getRecipient());
+			 preparedStatement3.setDouble(5, oneTran.getAmount());
+			 preparedStatement3.setDate(6, oneTran.getDate());
+			 preparedStatement3.setString(7, oneTran.getStatus());			int c2 = preparedStatement3.executeUpdate();
 			
 			if (c2==1)
 				log.info("Transfer has been completed!");
@@ -200,7 +200,7 @@ return;
 	preparedStatement1.setInt(2, accountNumber);
 	c = preparedStatement1.executeUpdate();
 	
-	String sql2 = "insert into \"bankApp\".transactions(transnum, type, sender, recipient, amount) values(?, ?, ?, ?, ?)";
+	String sql2 = "insert into \"bankApp\".transactions(transnum, type, sender, recipient, amount) values(?, ?, ?, ?, ?, ?, ?)";
 	 PreparedStatement preparedStatement2= connection.prepareStatement(sql2);
 	 
 	 preparedStatement2.setInt(1, rand.nextInt(1000000)+1);
@@ -263,6 +263,8 @@ return;
 		 preparedStatement2.setInt(4, oneTran.getRecipient());
 		 preparedStatement2.setDouble(5, oneTran.getAmount());
 		 preparedStatement2.setDate(6, oneTran.getDate());
+		 preparedStatement2.setString(7, oneTran.getStatus());
+
 		 
 		 c1=preparedStatement.executeUpdate();
 		

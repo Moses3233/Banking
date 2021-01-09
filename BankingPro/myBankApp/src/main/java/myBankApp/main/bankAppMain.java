@@ -45,10 +45,21 @@ public class bankAppMain {
 				switch(userOption) {
 				
 				case 1://Is a customer
+					
+					String usernameX = "";
+					String passwordX = "";
+					int customerAcctNumber = 0;
+					
+					log.info("What is your username?");
+					usernameX = sc.nextLine();
+					log.info("What is your password going to be");
+					passwordX = sc.nextLine();
+					
 					try {
-						bankCustomerService.customerLogin();
+						customerAcctNumber = bankCustomerService.customerLogin(usernameX,passwordX);
 					} catch (BusinessException e) {
 					}
+					
 					do {
 						switch(customerOption) {
 						
@@ -75,27 +86,152 @@ public class bankAppMain {
 					
 				case 2://Is an Employee
 					
-
+					String usernameE = "";
+					String passwordE = "";
+								
+						log.info("What is your username?");
+						usernameX = sc.nextLine();
+						log.info("What is your password?");
+						passwordX = sc.nextLine();
+						
+					try {
+						bankEmployeeService.employeeLogin(usernameE, passwordE);
+					} catch (BusinessException e2) {
+					}
+					
 					do {
 						switch(employeeOption) {
 						
-						case 1:
+						case 1://Create User
+							
+							users newUser = new users();
+							log.info("What is your username going to be?");
+							newUser.setUsername(sc.nextLine());
+							log.info("What is your password going to be");
+							newUser.setPassword(sc.nextLine());
+							log.info("What is your E-mail address?");
+							newUser.setEmail(sc.nextLine());
+							newUser.setRole("Customer");
+							log.info("What is your first name?");
+							newUser.setFname(sc.nextLine());
+							log.info("What is your last name?");
+							newUser.setLname(sc.nextLine());
+							log.info("What is your gender?");
+							newUser.setGender(sc.nextLine());
+							log.info("How old are you?");
+							newUser.setAge(Integer.parseInt(sc.nextLine()));
+							log.info("What is your address?");
+							newUser.setAddress(sc.nextLine());
+							log.info("What city do you live in?");
+							newUser.setCity(sc.nextLine());
+							log.info("What state do you live in?");
+							newUser.setState(sc.nextLine());
+							log.info("What is your Zip Code?");
+							newUser.setZip(sc.nextLine());
+							log.info("What Country do you reside in?");
+							newUser.setCountry(sc.nextLine());
+							
+							try {
+								bankEmployeeService.createUser(newUser);
+							} catch (BusinessException e5) {}
 							break;
 							
-						case 2:
+						case 2://Create Account
+							
+							int acctType = 0;
+							double startingBalance = 0.0;
+							accounts newAccount = new accounts();
+							
+							newAccount.setAcctnum(rand.nextInt(1000000)+1);
+							
+							log.info("What is the username the account is linked to?");
+							newAccount.setUsername(sc.nextLine());
+							
+							do {
+							log.info("What type of account is this? Enter \"1\" for Checking or \"2\" for Savings");
+							acctType = Integer.parseInt(sc.nextLine());
+							if(acctType ==1)
+								newAccount.setType("Checking");
+							if(acctType == 2)
+								newAccount.setType("Saving");
+							}while(acctType!=1 && acctType!=2);
+
+							do {
+							log.info("What is the starting balance?");
+							startingBalance = Double.parseDouble(sc.nextLine());
+							if(startingBalance<300)
+							log.info("The starting balance cannot be lower than 300.00");
+							}while(startingBalance<300.0);
+							
+							newAccount.setBalance(startingBalance);
+							newAccount.setStatus("PENDING");
+							
+							try {
+								bankEmployeeService.createAccount(newAccount);
+							} catch (BusinessException e4) {}
 							break;
 							
-						case 3:
+							
+						case 3://Delete User
+							
+							log.info("The account(s) you are looking for are under which username?");
+							String username = sc.nextLine();
+							
+							try {
+								bankEmployeeService.deleteUser(username);
+							} catch (BusinessException e3) {
+							}
+							break;
+								
+						case 4://Delete Account
+
+							log.info("What is the account number of the account we're deleting?");
+							int accountNumber = Integer.parseInt(sc.nextLine());
+							
+							try {
+								bankEmployeeService.deleteAccount(accountNumber);
+							} catch (BusinessException e2) {}
 							break;
 							
-						case 4:
+						case 5: //View Accounts
+							
+							log.info("The account(s) you are looking for are under which username?");
+							String acctUsername = sc.nextLine();
+							try {
+								bankEmployeeService.viewAccounts(acctUsername);
+							} catch (BusinessException e1) {
+							}
+							
+							break;
+							
+						case 6:// Accept/Reject Pending Accounts
+						
+							log.info("What is the pending account number?");
+							int pendingAcctNumber = Integer.parseInt(sc.nextLine());
+							
+							try {
+								bankEmployeeService.approveRejectAccount(pendingAcctNumber);
+							} catch (BusinessException e) {
+							}
+							break;
+							
+						case 7://View Transaction(s)
+							
+							log.info("The transaction(s) you are looking for are under which account?");
+							int acctNumber = Integer.parseInt(sc.nextLine());
+							
+							try {
+								bankEmployeeService.viewTransactions(acctNumber);
+							} catch (BusinessException e) {
+							}
 							break;
 							
 						default:
 							log.info("Not a valid option. Try again");
 							break;
 						}
-					}while(employeeOption!=5);
+						
+					}while(employeeOption!=8);
 					
 					break;
 					
@@ -105,8 +241,6 @@ public class bankAppMain {
 				}
 				
 			}while(userOption!=1 && userOption!=2);
-			
-			
 			
 			
 			break;
@@ -176,7 +310,7 @@ public class bankAppMain {
 			}while(startingBalance<300.0);
 			
 			newAccount.setBalance(startingBalance);
-			newAccount.setStatus("PENDING");;
+			newAccount.setStatus("PENDING");
 			try {
 				bankEmployeeService.createAccount(newAccount);
 			} catch (BusinessException e) {

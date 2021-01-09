@@ -4,7 +4,7 @@ import myBankApp.exception.BusinessException;
 
 public interface bankCustomerDAO {
 
-public void customerLogin() throws BusinessException;	
+public int customerLogin(String username, String password) throws BusinessException;	
 public void postTransfer(int accountNumber) throws BusinessException;
 public void acceptTransfer() throws BusinessException;
 public void accountWithdrawl(int accountNumber, double amount) throws BusinessException;
