@@ -1,5 +1,7 @@
 package myBankApp.model;
 
+import java.sql.Date;
+
 public class transactions {
 
 	private int transnum;
@@ -7,6 +9,8 @@ public class transactions {
 	private int sender;
 	private int recipient;
 	private double amount;
+	private Date date;
+	private String status;
 	
 	public transactions() {
 		
@@ -53,11 +57,27 @@ public class transactions {
 		this.recipient = recipient;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	@Override
 	public String toString() {
 		
-	return "Transaction [Transaction Number: " + transnum +", Transaction Type: " + type + ", Sender: " + sender + ", Recipient: " +recipient+ ", Amount: " + amount +" ]";
+	return "Transaction [Transaction Number: " + transnum +", Transaction Type: " + type + ", Sender: " + sender + ", Recipient: " +recipient+ ", Amount: " + amount +", Date: "+date+", Status: "+status+" ]";
 
 	}
-	
+
 }

@@ -34,7 +34,7 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 				log.info("What is your password going to be");
 				passwordX = sc.nextLine();
 				
-				String sql = "select * from bankApp.users where role = 'CUSTOMER' AND username = ? AND password = ?";
+				String sql = "select * from \"bankApp\".users where role = CUSTOMER AND username = ? AND password = ?";
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setString(1, usernameX);
 				preparedStatement.setString(2, passwordX);
@@ -65,7 +65,7 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		
 		try(Connection connection=postgresqlConnection.getConnection()){	
 		
-		String sql = "select * from bankApp.accounts where acctnum = ?";
+		String sql = "select * from \"bankApp\".accounts where acctnum = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, accountNumber);
 		ResultSet resultSet = preparedStatement.executeQuery();
@@ -91,7 +91,7 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		
 	
 
-			String sql1 = "insert into bankApp.transactions(acctnum, username, type, balance, status) values(?, ?, ?, ?, ?)";
+			String sql1 = "insert into \"bankApp\".transactions(acctnum, username, type, balance, status) values(?, ?, ?, ?, ?)";
 			 PreparedStatement preparedStatement1= connection.prepareStatement(sql1);
 			 
 			 preparedStatement1.setInt(1, transEntry.getTransnum());
@@ -121,14 +121,14 @@ return;
 		try(Connection connection=postgresqlConnection.getConnection()){	
 		
 		//Transaction information	
-		String sql = "select * from bankApp.transactions where transnum = ?";
+		String sql = "select * from \"bankApp\".transactions where transnum = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, transactionNum);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
 		//Recipient balance
 		Connection connection0=postgresqlConnection.getConnection();
-		String sql0 = "select balance from bankApp.accounts where acctnum = ?";
+		String sql0 = "select balance from \"bankApp\".accounts where acctnum = ?";
 		PreparedStatement preparedStatement0 = connection0.prepareStatement(sql0);
 		preparedStatement0.setInt(1, resultSet.getInt("recipient") );
 		ResultSet resultSet0 = preparedStatement0.executeQuery();	
@@ -137,7 +137,7 @@ return;
 		if(resultSet.next() && resultSet0.next()) {
 			
 			Connection connection1=postgresqlConnection.getConnection();
-			String sql1 = "update bankApp.accounts set balance = ? where acctnum = ?";
+			String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
 			PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
 			preparedStatement1.setDouble(1,resultSet0.getDouble("balance") + resultSet.getDouble("amount"));
 			preparedStatement1.setInt(2, resultSet.getInt("sender"));
@@ -146,13 +146,22 @@ return;
 			log.info("Sender account has been updated!");
 			
 			Connection connection2=postgresqlConnection.getConnection();
-			String sql2 = "update bankApp.accounts set balance = ? where acctnum = ?";
+			String sql2 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
 			PreparedStatement preparedStatement2= connection2.prepareStatement(sql2);
 			preparedStatement2.setDouble(1,resultSet0.getDouble("balance") + resultSet.getDouble("amount"));
 			preparedStatement2.setInt(2, resultSet.getInt("sender"));
 			int c1 = preparedStatement2.executeUpdate(sql2);
 			if (c1==1)
 			log.info("Recipient account has been updated!");
+			
+			//Transaction information	
+			String sql3 = "update \"bankApp\".transactions set status = COMPLETED where transnum = ?";
+			PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
+			preparedStatement3.setInt(1, transactionNum);
+			int c2 = preparedStatement3.executeUpdate();
+			
+			if (c2==1)
+				log.info("Transfer has been completed!");
 			
 	}
 		else {log.info("No transfer was found with this number.");}
@@ -172,7 +181,7 @@ return;
 	try(Connection connection=postgresqlConnection.getConnection()){	
 	
 		
-		String sql = "select * from bankApp.accounts where acctnum = ?";
+		String sql = "select * from \"bankApp\".accounts where acctnum = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, accountNumber);
 		ResultSet resultSet = preparedStatement.executeQuery();
@@ -185,13 +194,13 @@ return;
 		oneAccount.setStatus(resultSet.getString("status"));	
 		}
 		
-	String sql1 = "update bankApp.accounts set balance = ? where acctnum = ?";
+	String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
 	PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
 	preparedStatement1.setDouble(1, oneAccount.getBalance());
 	preparedStatement1.setInt(2, accountNumber);
 	c = preparedStatement1.executeUpdate();
 	
-	String sql2 = "insert into bankApp.transactions(transnum, type, sender, recipient, amount) values(?, ?, ?, ?, ?)";
+	String sql2 = "insert into \"bankApp\".transactions(transnum, type, sender, recipient, amount) values(?, ?, ?, ?, ?)";
 	 PreparedStatement preparedStatement2= connection.prepareStatement(sql2);
 	 
 	 preparedStatement2.setInt(1, rand.nextInt(1000000)+1);
@@ -199,6 +208,9 @@ return;
 	 preparedStatement2.setInt(3, oneTran.getSender());
 	 preparedStatement2.setInt(4, oneTran.getRecipient());
 	 preparedStatement2.setDouble(5, oneTran.getAmount());
+	 preparedStatement2.setDate(6, oneTran.getDate());
+	 preparedStatement2.setString(7, oneTran.getStatus());
+
 	 
 	 c1=preparedStatement.executeUpdate();
 	
@@ -223,7 +235,7 @@ return;
 		try(Connection connection=postgresqlConnection.getConnection()){	
 		
 			
-			String sql = "select * from bankApp.accounts where acctnum = ?";
+			String sql = "select * from \"bankApp\".accounts where acctnum = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -236,13 +248,13 @@ return;
 			oneAccount.setStatus(resultSet.getString("status"));	
 			}
 			
-		String sql1 = "update bankApp.accounts set balance = ? where acctnum = ?";
+		String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
 		PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
 		preparedStatement1.setDouble(1, oneAccount.getBalance());
 		preparedStatement1.setInt(2, accountNumber);
 		c = preparedStatement1.executeUpdate();
 		
-		String sql2 = "insert into bankApp.transactionss(transnum, type, sender, recipient, amount) values(?, ?, ?, ?, ?)";
+		String sql2 = "insert into \"bankApp\".transactions(transnum, type, sender, recipient, amount, date) values(?, ?, ?, ?, ?, ?)";
 		 PreparedStatement preparedStatement2= connection.prepareStatement(sql2);
 		 
 		 preparedStatement2.setInt(1, oneTran.getTransnum());
@@ -250,6 +262,7 @@ return;
 		 preparedStatement2.setInt(3, oneTran.getSender());
 		 preparedStatement2.setInt(4, oneTran.getRecipient());
 		 preparedStatement2.setDouble(5, oneTran.getAmount());
+		 preparedStatement2.setDate(6, oneTran.getDate());
 		 
 		 c1=preparedStatement.executeUpdate();
 		

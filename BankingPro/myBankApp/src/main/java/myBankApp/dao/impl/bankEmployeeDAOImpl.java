@@ -33,10 +33,10 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 			
 			log.info("What is your username?");
 			usernameX = sc.nextLine();
-			log.info("What is your password going to be");
+			log.info("What is your password?");
 			passwordX = sc.nextLine();
 			
-			String sql = "select * from bankApp.users where role = 'EMPLOYEE' AND username = ? AND password = ?";
+			String sql = "select * from \"bankApp\".users where role = EMPLOYEE AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, usernameX);
 			preparedStatement.setString(2, passwordX);
@@ -55,38 +55,11 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 			return;
 	}
 
-	public void createUser() throws BusinessException {
+	public void createUser(users newUser) throws BusinessException {
 		int c = 0;
-		users newUser = new users();
 		
-		log.info("What is your username going to be?");
-		newUser.setUsername(sc.nextLine());
-		log.info("What is your password going to be");
-		newUser.setPassword(sc.nextLine());
-		log.info("What is your E-mail address?");
-		newUser.setEmail(sc.nextLine());
-		newUser.setRole("'Customer'");
-		log.info("What is your first name?");
-		newUser.setFname(sc.nextLine());
-		log.info("What is your last name");
-		newUser.setLname(sc.nextLine());
-		log.info("What is your gender?");
-		newUser.setGender(sc.nextLine());
-		log.info("How old are you?");
-		newUser.setAge(Integer.parseInt(sc.nextLine()));
-		log.info("What is your address?");
-		newUser.setAddress(sc.nextLine());
-		log.info("What city do you live in?");
-		newUser.setCity(sc.nextLine());
-		log.info("What state do you live in?");
-		newUser.setState(sc.nextLine());
-		log.info("What is your Zip Code");
-		newUser.setZip(sc.nextLine());
-		log.info("What Country do you reside in?");
-		newUser.setCountry(sc.nextLine());
-
 		try(Connection connection=postgresqlConnection.getConnection()){
-			String sql = "insert into bankApp.users(username, password, email, role, fname, lname, gender, age, address, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO \"bankApp\".users(username, password, email, role, fname, lname, gender, age, address, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
 			 preparedStatement.setString(1, newUser.getUsername());
@@ -114,38 +87,11 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 return;		
 	}
 
-	public void createAccount() throws BusinessException {
+	public void createAccount(accounts newAccount) throws BusinessException {
 		int c = 0;
-		int acctType = 0;
-		double startingBalance = 0.0;
-		accounts newAccount = new accounts();
-		
-		newAccount.setAcctnum(rand.nextInt(1000000)+1);
-		
-		log.info("What is the username the account is linked to?");
-		newAccount.setUsername(sc.nextLine());
-		
-		do {
-		log.info("What type of account is this? Enter \"1\" for Checking or \"2\" for Savings");
-		acctType = Integer.parseInt(sc.nextLine());
-		if(acctType ==1)
-			newAccount.setType("'Checking'");
-		if(acctType == 2)
-			newAccount.setType("'Saving'");
-		}while(acctType!=1 && acctType!=2);
 
-		do {
-		log.info("What is the starting balance?");
-		startingBalance = Double.parseDouble(sc.nextLine());
-		if(startingBalance<300)
-		log.info("The starting balance cannot be lower than 300.00");
-		}while(startingBalance<300.0);
-		
-		newAccount.setBalance(startingBalance);
-		newAccount.setStatus("'PENDING'");;
-		
 		try(Connection connection=postgresqlConnection.getConnection()){
-			String sql = "insert into bankApp.accounts(acctnum, username, type, balance, status) values(?, ?, ?, ?, ?)";
+			String sql = "insert into \"bankApp\".accounts(acctnum, username, type, balance, status) values(?, ?, ?, ?, ?)";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
 			 preparedStatement.setInt(1, newAccount.getAcctnum());
@@ -178,7 +124,7 @@ return;
 		
 		try(Connection connection=postgresqlConnection.getConnection()){
 			
-			String sql = "select * from bankApp.accounts where acctnum = ? AND status = 'PENDING'";
+			String sql = "select * from \"bankApp\".accounts where acctnum = ? AND status = 'PENDING'";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -198,7 +144,7 @@ return;
 			
 			if(pendingChoice == 1) {
 				Connection connection1=postgresqlConnection.getConnection();
-					String sql1 = "update bankApp.accounts set status='ACTIVE' where acctnum = ?";
+					String sql1 = "update \"bankApp\".accounts set status='ACTIVE' where acctnum = ?";
 					PreparedStatement preparedStatement1= connection1.prepareStatement(sql);
 					preparedStatement1.setInt(1, accountNumber);
 					c = preparedStatement1.executeUpdate(sql1);
@@ -208,7 +154,7 @@ return;
 			
 			else{
 				Connection connection1=postgresqlConnection.getConnection();
-				String sql1 = "delete from bankApp.accounts where acctnum = ?";
+				String sql1 = "delete from \"bankApp\".accounts where acctnum = ?";
 				PreparedStatement preparedStatement1= connection1.prepareStatement(sql);
 				preparedStatement1.setInt(1, accountNumber);
 				c = preparedStatement1.executeUpdate(sql1);
@@ -234,7 +180,7 @@ return;
 		
 		try(Connection connection=postgresqlConnection.getConnection()){
 			
-			String sql = "select * from bankApp.accounts where acctnum = ?";
+			String sql = "select * from \"bankApp\".accounts where acctnum = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -263,7 +209,7 @@ return;
 
 		List<transactions> TransactionList = new ArrayList<>();
 		try(Connection connection=postgresqlConnection.getConnection()){
-			String sql = "select * from bankApp.transactions where sender = ? or recipient = ?";
+			String sql = "select * from \"bankApp\".transactions where sender = ? or recipient = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
@@ -274,6 +220,7 @@ return;
 				tranEntry.setSender(resultSet.getInt("sender"));
 				tranEntry.setRecipient(resultSet.getInt("recipient"));
 				tranEntry.setAmount(resultSet.getInt("amount"));
+				tranEntry.setDate(resultSet.getDate("date"));
 				TransactionList.add(tranEntry);
 			}
 			if(TransactionList.size()==0){
