@@ -30,7 +30,6 @@ public class bankAppMain {
 		
 		bankEmployeeDAO bankEmployeeService = new bankEmployeeDAOImpl();
 		bankCustomerDAO bankCustomerService = new bankCustomerDAOImpl();
-
 						
 		do {
 				log.info("Welcome to the BankApp! Do you already have an account with us?");
@@ -40,7 +39,9 @@ public class bankAppMain {
 		switch(welcomeOption) {
 		
 		case 1://has an account with the bank
-			log.info("Are you an employee or customer? Press \"1\" for employee or Press \"2\" for customer");
+			log.info("Are you an employee or customer? Press \"1\" for Customer or Press \"2\" for Employee");
+			userOption = Integer.parseInt(sc.nextLine());
+			
 			do {
 				switch(userOption) {
 				
@@ -50,29 +51,65 @@ public class bankAppMain {
 					String passwordX = "";
 					int customerAcctNumber = 0;
 					
+						
 					log.info("What is your username?");
 					usernameX = sc.nextLine();
-					log.info("What is your password going to be");
+					log.info("What is your password?");
 					passwordX = sc.nextLine();
 					
 					try {
-						customerAcctNumber = bankCustomerService.customerLogin(usernameX,passwordX);
-					} catch (BusinessException e) {
+					bankCustomerService.customerLogin(usernameX,passwordX);
+					} catch (BusinessException e6) {
+						// TODO Auto-generated catch block
+						e6.printStackTrace();
 					}
 					
+					log.info("Hello! Here is the Option Menu!:\n1) Deposit into account\n2) Withdraw from account\n3) Post Transfer\n4) Accept Transfer\n5) Exit");
+					customerOption = Integer.parseInt(sc.nextLine());
 					do {
 						switch(customerOption) {
 						
-						case 1:
+						case 1://Deposit into account
+							int depositAmount = 0;
+							
+							log.info("Hom much are we depositing into the account?");
+							depositAmount = Integer.parseInt(sc.nextLine());
+							try {
+								bankCustomerService.accountDeposit(customerAcctNumber, depositAmount);
+							} catch (BusinessException e2) {}
 							break;
 							
-						case 2:
+						case 2://Withdraw from account
+							int withdrawAmount = 0;
+							
+							log.info("What is the transfer number?");
+							withdrawAmount = Integer.parseInt(sc.nextLine());
+							
+							try {
+								bankCustomerService.accountWithdrawl(customerAcctNumber, withdrawAmount);
+							} catch (BusinessException e1) {}
+							
 							break;
 							
-						case 3:
+						case 3://Post Transfer
+							try {
+								bankCustomerService.postTransfer(customerAcctNumber);
+							} catch (BusinessException e) {}
 							break;
 							
-						case 4:
+						case 4://Accept Transfer
+							int transactionNum = 0;
+							
+							log.info("What is the transfer number?");
+							transactionNum = Integer.parseInt(sc.nextLine());
+							
+							try {
+								bankCustomerService.acceptTransfer(transactionNum);
+							} catch (BusinessException e) {}
+							break;
+							
+						case 5:
+							log.info("Exiting...");
 							break;
 							
 						default:
@@ -90,9 +127,9 @@ public class bankAppMain {
 					String passwordE = "";
 								
 						log.info("What is your username?");
-						usernameX = sc.nextLine();
+						usernameE = sc.nextLine();
 						log.info("What is your password?");
-						passwordX = sc.nextLine();
+						passwordE = sc.nextLine();
 						
 					try {
 						bankEmployeeService.employeeLogin(usernameE, passwordE);
@@ -174,7 +211,7 @@ public class bankAppMain {
 							
 						case 3://Delete User
 							
-							log.info("The account(s) you are looking for are under which username?");
+							log.info("The account(s) you are deleting are under which username?");
 							String username = sc.nextLine();
 							
 							try {

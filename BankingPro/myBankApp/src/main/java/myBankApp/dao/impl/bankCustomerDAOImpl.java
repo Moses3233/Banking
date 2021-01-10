@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -23,10 +25,10 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 
 	public int customerLogin(String usernameX, String passwordX) throws BusinessException {
 		int loginAcctNum = 0;
+		List<Integer> accountNumbers = new ArrayList<Integer>();
 		try {		
 			try(Connection connection=postgresqlConnection.getConnection()){
-
-				String sql = "SELECT u.username, u.\"password\", u.role, a.acctnum FROM \"bankApp\".users u join \"bankApp\".accounts a on a.username = u.username where role = CUSTOMER AND username = ? AND password = ?";
+				String sql = "SELECT u.username, u.\"password\", u.role, a.acctnum, a.type FROM \"bankApp\".users u join \"bankApp\".accounts a on a.username = u.username where role = 'Customer' AND u.username = ? AND u.\"password\" = ? ;";
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setString(1, usernameX);
 				preparedStatement.setString(2, passwordX);
@@ -34,10 +36,25 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 				
 				try {
 					if(resultSet.next()) {
-					loginAcctNum = resultSet.getInt("acctnum");
 					log.info("Login succeeded! Welcome, " + usernameX);
-					log.info(loginAcctNum);
-		              
+		            
+					while(resultSet.next()) {
+						int acctEntry = resultSet.getInt("acctnum");
+						accountNumbers.add(acctEntry);
+					}
+					
+					Object accountChoice;
+					
+					do {
+					log.info("Which of these accounts are we working with?");
+					
+					for(int acctEntry:accountNumbers) {
+					log.info(accountNumbers.get(acctEntry));
+					}
+					accountChoice = Integer.parseInt(sc.nextLine());
+					}while(!accountNumbers.contains(accountChoice));
+					
+					loginAcctNum = Integer.parseInt(accountChoice.toString());  
 					}else {
 						throw new BusinessException("No customer with these credentials exist in the database");
 					}
@@ -106,13 +123,9 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 return;	
 	}
 
-	public void acceptTransfer() throws BusinessException {
-		int transactionNum = 0;
+	public void acceptTransfer(int transactionNum) throws BusinessException {
+
 		transactions oneTran = new transactions();
-		
-		log.info("What is the transfer number?");
-		transactionNum = Integer.parseInt(sc.nextLine());
-		
 		try(Connection connection=postgresqlConnection.getConnection()){	
 		
 		//Transaction information	
@@ -143,8 +156,8 @@ return;
 			Connection connection2=postgresqlConnection.getConnection();
 			String sql2 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
 			PreparedStatement preparedStatement2= connection2.prepareStatement(sql2);
-			preparedStatement2.setDouble(1,resultSet0.getDouble("balance") + resultSet.getDouble("amount"));
-			preparedStatement2.setInt(2, resultSet.getInt("sender"));
+			preparedStatement2.setDouble(1,resultSet0.getDouble("balance") - resultSet.getDouble("amount"));
+			preparedStatement2.setInt(2, resultSet.getInt("recipient"));
 			int c1 = preparedStatement2.executeUpdate(sql2);
 			if (c1==1)
 			log.info("Recipient account has been updated!");
@@ -158,7 +171,8 @@ return;
 			 preparedStatement3.setInt(4, oneTran.getRecipient());
 			 preparedStatement3.setDouble(5, oneTran.getAmount());
 			 preparedStatement3.setDate(6, oneTran.getDate());
-			 preparedStatement3.setString(7, oneTran.getStatus());			int c2 = preparedStatement3.executeUpdate();
+			 preparedStatement3.setString(7, oneTran.getStatus());
+			 int c2 = preparedStatement3.executeUpdate();
 			
 			if (c2==1)
 				log.info("Transfer has been completed!");
