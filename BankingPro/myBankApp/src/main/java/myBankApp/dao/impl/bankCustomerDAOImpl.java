@@ -25,36 +25,37 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 
 	public int customerLogin(String usernameX, String passwordX) throws BusinessException {
 		int loginAcctNum = 0;
-		List<Integer> accountNumbers = new ArrayList<Integer>();
+		List<Integer> acctNumList = new ArrayList<>();
+
 		try {		
 			try(Connection connection=postgresqlConnection.getConnection()){
-				String sql = "SELECT u.username, u.\"password\", u.role, a.acctnum, a.type FROM \"bankApp\".users u join \"bankApp\".accounts a on a.username = u.username where role = 'Customer' AND u.username = ? AND u.\"password\" = ? ;";
+				String sql = "SELECT u.username, u.\"password\", u.role FROM \"bankApp\".users u where role = 'Customer' AND u.username = ? AND u.\"password\" = ? ;";
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setString(1, usernameX);
 				preparedStatement.setString(2, passwordX);
 				ResultSet resultSet = preparedStatement.executeQuery();
 				
-				try {
+				try {	
 					if(resultSet.next()) {
-					log.info("Login succeeded! Welcome, " + usernameX);
-		            
-					while(resultSet.next()) {
-						int acctEntry = resultSet.getInt("acctnum");
-						accountNumbers.add(acctEntry);
+					log.info("Login succeeded! Welcome, " + usernameX);		
+					
+					String sql1 = "SELECT acctnum FROM \"bankApp\".accounts where username = ? ;";
+					PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+					preparedStatement1.setString(1, usernameX);
+					ResultSet resultSet1 = preparedStatement1.executeQuery();
+			
+					while(resultSet1.next()) {
+						log.info(resultSet1.getInt("acctnum"));
+						Integer acctNum = (Integer) resultSet1.getInt("acctnum");
+						acctNumList.add(acctNum);
+					}		
+					log.info("Which account are you looking into?");
+					int anAcctNum = Integer.parseInt(sc.nextLine());
+					
+					if(acctNumList.contains((Integer)anAcctNum)){
+						loginAcctNum = anAcctNum;
 					}
 					
-					Object accountChoice;
-					
-					do {
-					log.info("Which of these accounts are we working with?");
-					
-					for(int acctEntry:accountNumbers) {
-					log.info(accountNumbers.get(acctEntry));
-					}
-					accountChoice = Integer.parseInt(sc.nextLine());
-					}while(!accountNumbers.contains(accountChoice));
-					
-					loginAcctNum = Integer.parseInt(accountChoice.toString());  
 					}else {
 						throw new BusinessException("No customer with these credentials exist in the database");
 					}

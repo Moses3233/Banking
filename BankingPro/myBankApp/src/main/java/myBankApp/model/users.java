@@ -1,12 +1,14 @@
 package myBankApp.model;
 
+import java.sql.Date;
+
 public class users {
 private String fname;
 private String lname;
 private String username;
 private String password;
 private String role;
-private int age;
+private Date dob;
 private String gender;
 private String email;
 private String address;
@@ -45,11 +47,11 @@ public String getRole() {
 public void setRole(String role) {
 	this.role = role;
 }
-public int getAge() {
-	return age;
+public Date getDob() {
+	return dob;
 }
-public void setAge(int age) {
-	this.age = age;
+public void setDob(Date dob) {
+	this.dob = dob;
 }
 public String getGender() {
 	return gender;
@@ -99,7 +101,7 @@ public String toString() {
 	
 return "User [ Role: " + role + ", Username: " + username +", Password: " + password + 
 			", First Name: " + fname + ", Last Name: " +lname+ ", Email: " + email +
-			", Age: " + age + ", Gender: " +gender+ ", Address: " + address +
+			", DOB: " + dob + ", Gender: " +gender+ ", Address: " + address +
 			", City: " + city + ", State: " +state+ ", ZIP: " + zip +", Country: " + country +" ]";
 
 }

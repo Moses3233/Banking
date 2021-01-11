@@ -51,7 +51,7 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 		int c = 0;
 		
 		try(Connection connection=postgresqlConnection.getConnection()){
-			String sql = "INSERT INTO \"bankApp\".users(username, password, email, role, fname, lname, gender, age, address, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO \"bankApp\".users(username, password, email, role, fname, lname, gender, dob, address, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
 			 preparedStatement.setString(1, newUser.getUsername());
@@ -61,7 +61,7 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 			 preparedStatement.setString(5, newUser.getFname());
 			 preparedStatement.setString(6, newUser.getLname());
 			 preparedStatement.setString(7, newUser.getGender());
-			 preparedStatement.setInt(8, newUser.getAge());
+			 preparedStatement.setDate(8, newUser.getDob());
 			 preparedStatement.setString(9, newUser.getAddress());
 			 preparedStatement.setString(10, newUser.getCity());
 			 preparedStatement.setString(11, newUser.getState());

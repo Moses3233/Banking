@@ -155,8 +155,8 @@ public class bankAppMain {
 							newUser.setLname(sc.nextLine());
 							log.info("What is your gender?");
 							newUser.setGender(sc.nextLine());
-							log.info("How old are you?");
-							newUser.setAge(Integer.parseInt(sc.nextLine()));
+							log.info("When were you born?");
+							newUser.setDob(sc.nextLine());
 							log.info("What is your address?");
 							newUser.setAddress(sc.nextLine());
 							log.info("What city do you live in?");
@@ -301,8 +301,8 @@ public class bankAppMain {
 			newUser.setLname(sc.nextLine());
 			log.info("What is your gender?");
 			newUser.setGender(sc.nextLine());
-			log.info("How old are you?");
-			newUser.setAge(Integer.parseInt(sc.nextLine()));
+			log.info("When were you born?");
+			newUser.setDob(sc.nextLine());
 			log.info("What is your address?");
 			newUser.setAddress(sc.nextLine());
 			log.info("What city do you live in?");
