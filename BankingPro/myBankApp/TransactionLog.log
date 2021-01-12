@@ -13,3 +13,558 @@
 3) Post Transfer
 4) Accept Transfer
 5) Exit 2021-01-10 23:46:07,273 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 13:50:21,811 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 13:50:21,812 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 13:50:42,380 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 13:50:44,755 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 13:50:47,283 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 13:50:49,602 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 13:50:49,605 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 13:50:49,605 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 13:51:02,891 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 13:51:02,891 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 13:51:26,259 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 14:04:22,704 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 14:04:22,705 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 14:04:26,652 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 14:04:28,732 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 14:04:30,748 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 14:04:34,286 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 14:04:34,288 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 14:04:34,288 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 14:04:51,884 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 14:04:51,884 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:04:59,436 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 14:07:54,738 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 14:07:54,739 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 14:08:15,484 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 14:08:18,371 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 14:08:21,443 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 14:08:24,854 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 14:08:24,856 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 14:08:24,856 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 14:08:31,131 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 14:08:31,132 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:08:42,140 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:08:48,095 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:09:00,663 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:09:08,272 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 14:18:54,655 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 14:18:54,656 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 14:18:58,949 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 14:19:00,701 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 14:19:02,308 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 14:19:04,598 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 14:19:04,600 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 14:19:04,600 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 14:19:16,189 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 14:19:16,189 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:19:23,773 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:19:29,021 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 14:26:48,121 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 14:26:48,122 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 14:26:50,693 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 14:26:51,509 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 14:26:53,156 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 14:26:55,434 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 14:26:55,436 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 14:26:55,436 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 14:27:00,372 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 14:27:00,373 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:27:04,116 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	1 2021-01-11 14:27:07,472 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:27:07,481 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 14:33:47,628 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 14:33:47,629 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 14:33:50,885 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 14:33:52,173 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 14:33:54,501 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 14:33:57,262 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 14:33:57,263 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 14:33:57,264 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 14:34:02,397 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 14:34:02,397 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:34:05,781 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 14:34:08,753 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 14:34:08,753 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 15:15:42,443 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 15:15:42,443 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 15:15:50,304 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 15:15:52,479 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 15:15:55,040 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 15:16:04,946 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 15:16:04,948 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 15:16:04,948 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 15:16:37,191 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 15:16:37,191 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 15:17:36,831 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 15:17:40,496 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 15:17:40,496 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 15:19:41,829 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 15:19:41,829 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 15:42:33,330 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 15:42:33,331 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 15:42:36,057 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 15:42:36,433 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 15:42:38,488 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 15:42:41,881 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 15:42:41,884 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 15:42:41,884 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 15:42:46,249 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 15:42:46,249 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 15:42:48,537 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of this withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 15:42:54,077 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 15:43:15,749 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 15:48:32,933 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 15:48:32,934 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 15:48:36,394 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 15:48:37,801 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 15:48:39,625 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 15:48:41,907 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 15:48:41,910 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 15:48:41,910 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 15:48:49,226 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 15:48:49,227 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 15:48:51,473 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of this withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 15:48:54,079 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 15:49:07,629 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 16:08:37,452 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 16:08:37,452 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 16:08:52,042 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 16:08:53,682 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 16:08:57,458 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 16:09:01,174 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 16:09:01,177 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 16:09:01,177 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 16:09:06,769 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 16:09:06,770 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 16:09:09,642 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 16:09:14,358 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 16:09:53,695 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 16:20:31,608 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 16:20:31,608 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 16:20:34,819 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 16:20:35,563 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 16:20:37,346 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 16:20:39,811 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 16:20:39,813 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 16:20:39,813 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 16:20:45,803 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 16:20:45,803 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 16:20:49,603 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 16:20:53,965 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 16:21:07,463 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 16:22:50,134 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 16:22:50,135 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 16:22:53,172 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 16:22:54,475 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 16:22:57,268 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 16:23:01,120 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 16:23:01,122 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 16:23:01,122 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 16:23:06,659 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 16:23:06,660 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 16:23:09,019 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 16:23:11,878 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 16:23:21,488 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 16:23:21,498 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 16:23:21,498 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 16:59:49,258 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 16:59:49,259 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 17:01:18,637 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 17:01:19,412 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 17:01:24,429 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 17:01:28,703 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 17:01:28,705 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 17:01:28,705 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 17:01:34,709 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 17:01:34,709 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:01:40,956 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 17:01:44,726 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 17:02:21,586 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 17:02:21,595 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:02:21,595 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 17:28:45,839 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 17:28:45,839 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 17:28:49,591 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 17:28:51,671 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 17:28:55,894 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 17:29:04,156 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 17:29:04,158 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 17:29:04,158 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 17:29:09,533 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 17:29:09,534 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:29:34,334 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 17:29:36,985 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 17:29:56,227 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 17:29:56,236 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:29:56,236 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 17:32:56,347 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 17:32:56,348 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 17:33:01,230 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 17:33:02,446 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 17:33:06,415 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 17:33:13,478 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 17:33:13,480 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 17:33:13,480 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 17:33:19,670 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 17:33:19,671 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:33:22,510 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 17:33:26,525 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 17:33:42,491 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 17:33:42,501 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:33:42,501 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 17:35:30,177 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 17:35:30,178 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 17:35:34,095 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 17:35:34,775 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 17:35:36,614 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 17:35:39,056 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 17:35:39,058 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 17:35:39,058 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 17:35:42,999 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 17:35:43,000 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:35:45,087 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 17:35:48,921 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 17:36:00,539 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 17:36:00,549 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 17:36:00,549 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 17:57:56,635 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 17:57:56,636 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 17:58:26,344 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 17:58:29,112 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 17:58:31,376 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 17:58:34,147 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 17:58:34,150 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 17:58:34,150 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 17:58:48,137 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 17:59:54,656 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:00:23,748 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:00:46,896 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:01:50,840 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:03:51,465 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:03:51,465 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:03:54,306 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:03:55,192 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:03:58,433 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:04:05,241 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:04:05,243 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:04:05,244 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:04:14,673 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:04:14,673 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:04:20,057 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:04:23,578 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:04:33,167 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: column "transaction_sequence" does not exist
+  Position: 109 2021-01-11 18:04:33,178 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:04:33,179 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:04:33,179 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:07:50,268 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:07:50,269 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:07:52,809 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:07:53,872 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:07:55,840 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:07:58,336 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:07:58,338 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:07:58,338 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:08:03,025 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:08:03,026 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:09:25,712 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:09:25,713 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:09:27,713 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:09:34,360 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:09:36,432 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:09:39,331 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:09:39,333 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:09:39,333 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:09:43,905 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:09:43,906 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:09:47,088 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:09:51,904 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:10:03,312 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: missing FROM-clause entry for table "bankApp"
+  Position: 109 2021-01-11 18:10:03,320 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:10:03,321 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:10:03,321 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:12:09,935 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:12:09,940 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:12:12,385 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:12:12,816 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:12:14,345 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:12:16,685 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:12:16,688 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:12:16,688 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:12:20,498 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:12:20,499 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:12:23,161 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:12:26,310 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:12:33,551 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: missing FROM-clause entry for table "transaction_sequence"
+  Position: 100 2021-01-11 18:12:33,560 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:12:33,560 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:12:33,560 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:13:30,739 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:13:30,740 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:13:33,888 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:13:34,396 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:13:36,201 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:13:40,719 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:13:40,723 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:13:40,723 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:13:48,440 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:13:48,441 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:13:52,600 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:13:55,574 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:14:04,389 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: cross-database references are not implemented: bankApp.transactions.transaction_sequence.nextval
+  Position: 100 2021-01-11 18:14:04,400 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:14:04,400 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:14:04,400 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:25:58,581 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:25:58,582 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:26:00,441 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:26:00,889 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:26:02,897 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:26:05,429 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:26:05,431 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:26:05,431 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:26:10,201 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:26:10,202 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:26:13,017 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:26:15,935 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:26:24,624 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: syntax error at or near "t"
+  Position: 36 2021-01-11 18:26:24,633 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:26:24,633 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:26:24,633 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:27:24,160 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:27:24,164 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:27:27,331 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:27:28,169 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:27:30,642 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:27:33,116 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:27:33,119 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:27:33,119 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:27:38,217 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:27:38,219 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:27:40,850 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:27:44,643 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:27:52,624 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: column "transaction_sequence" does not exist
+  Position: 108 2021-01-11 18:27:52,633 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:27:52,634 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:27:52,634 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:29:24,154 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:29:24,157 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:29:26,393 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:29:27,322 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:29:29,970 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:29:35,582 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:29:35,585 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:29:35,585 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:29:39,730 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:29:39,731 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:29:43,201 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:29:45,327 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:29:52,287 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: column "transnum" does not exist
+  Hint: There is a column named "transnum" in table "transactions", but it cannot be referenced from this part of the query.
+  Position: 108 2021-01-11 18:29:52,299 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:29:52,299 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:29:52,299 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:33:26,506 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:33:26,507 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:33:30,129 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:33:31,650 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:33:33,394 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:33:35,626 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:33:35,629 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:33:35,629 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:33:40,050 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:33:40,051 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:33:43,986 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:33:47,409 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:33:56,888 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: relation "transaction_sequence" does not exist
+  Position: 108 2021-01-11 18:33:56,900 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:33:56,900 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:33:56,900 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 18:54:11,363 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 18:54:11,364 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-11 18:54:51,435 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-11 18:54:53,978 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-11 18:54:59,395 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-11 18:55:03,469 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-11 18:55:03,471 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-11 18:55:03,471 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-11 18:55:08,090 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:55:08,091 
+{INFO} myBankApp.main.bankAppMain	How much are we withdrawing from the account? 2021-01-11 18:55:15,235 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the date of the withdrawl being done? (Format: YYYY-MM-DD) 2021-01-11 18:55:19,963 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Transaction completed. 2021-01-11 18:55:38,361 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	org.postgresql.util.PSQLException: ERROR: insert or update on table "transactions" violates foreign key constraint "transactions_sender_fkey"
+  Detail: Key (sender)=(0) is not present in table "accounts". 2021-01-11 18:55:38,374 
+{INFO} myBankApp.main.bankAppMain	Error in the withdrawing 2021-01-11 18:55:38,375 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-11 18:55:38,375 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-11 19:14:26,914 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-11 19:14:26,915 

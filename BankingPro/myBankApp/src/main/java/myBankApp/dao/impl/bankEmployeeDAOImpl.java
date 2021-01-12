@@ -26,9 +26,10 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 	Random rand = new Random();
 	
 	public void employeeLogin(String usernameX, String passwordX) throws BusinessException {
-			try(Connection connection=postgresqlConnection.getConnection()){
+
+		try(Connection connection=postgresqlConnection.getConnection()){
 				
-			String sql = "select * from \"bankApp\".users where role = EMPLOYEE AND username = ? AND password = ?";
+			String sql = "select * from \"bankApp\".users where role = 'Employee' AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, usernameX);
 			preparedStatement.setString(2, passwordX);
@@ -36,6 +37,7 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 			
 			if(resultSet.next()) {
 			log.info("Login succeeded! Welcome, " + usernameX);
+		
 			}else {
 				throw new BusinessException("No employee with these credentials exist in the database");
 			}
@@ -115,10 +117,10 @@ return;
 		int c = 0;
 
 		try(Connection connection=postgresqlConnection.getConnection()){
-			String sql = "insert into \"bankApp\".accounts(acctnum, username, type, balance, status) values(?, ?, ?, ?, ?)";
+			String sql = "insert into \"bankApp\".accounts(acctnum, username, type, balance, status) values(nextval(account_sequence), ?, ?, ?, ?)";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
-			 preparedStatement.setInt(1, newAccount.getAcctnum());
+			 //preparedStatement.setInt(1, newAccount.getAcctnum());
 			 preparedStatement.setString(2, newAccount.getUsername());
 			 preparedStatement.setString(3, newAccount.getType());
 			 preparedStatement.setDouble(4, newAccount.getBalance());

@@ -1,5 +1,8 @@
 package myBankApp.main;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,6 +14,7 @@ import myBankApp.dao.impl.bankCustomerDAOImpl;
 import myBankApp.dao.impl.bankEmployeeDAOImpl;
 import myBankApp.exception.BusinessException;
 import myBankApp.model.accounts;
+import myBankApp.model.transactions;
 import myBankApp.model.users;
 
 public class bankAppMain {
@@ -58,42 +62,70 @@ public class bankAppMain {
 					passwordX = sc.nextLine();
 					
 					try {
-					bankCustomerService.customerLogin(usernameX,passwordX);
+					customerAcctNumber = bankCustomerService.customerLogin(usernameX,passwordX);
 					} catch (BusinessException e6) {
 						// TODO Auto-generated catch block
 						e6.printStackTrace();
 					}
 					
-					log.info("Hello! Here is the Option Menu!:\n1) Deposit into account\n2) Withdraw from account\n3) Post Transfer\n4) Accept Transfer\n5) Exit");
-					customerOption = Integer.parseInt(sc.nextLine());
+					
+					boolean endProgram = false;
 					do {
+						log.info("Hello! Here is the Option Menu!:\n1) Deposit into account\n2) Withdraw from account\n3) Post Transfer\n4) Accept Transfer\n5) Exit");
+						customerOption = Integer.parseInt(sc.nextLine());
+						
 						switch(customerOption) {
 						
 						case 1://Deposit into account
-							int depositAmount = 0;
+							double depositAmount = 0;
 							
 							log.info("Hom much are we depositing into the account?");
-							depositAmount = Integer.parseInt(sc.nextLine());
+							depositAmount = Double.parseDouble(sc.nextLine());
 							try {
 								bankCustomerService.accountDeposit(customerAcctNumber, depositAmount);
 							} catch (BusinessException e2) {}
 							break;
 							
 						case 2://Withdraw from account
-							int withdrawAmount = 0;
+							double withdrawAmount = 0;
 							
-							log.info("What is the transfer number?");
-							withdrawAmount = Integer.parseInt(sc.nextLine());
+							log.info("How much are we withdrawing from the account?");
+							withdrawAmount = Double.parseDouble(sc.nextLine());
 							
 							try {
 								bankCustomerService.accountWithdrawl(customerAcctNumber, withdrawAmount);
-							} catch (BusinessException e1) {}
+							} catch (BusinessException e1) {log.info("Error in the withdrawing");}
 							
 							break;
 							
 						case 3://Post Transfer
 							try {
-								bankCustomerService.postTransfer(customerAcctNumber);
+								transactions transEntry = new transactions();
+								
+								transEntry.setType("'Transfer'");
+
+								transEntry.setSender(customerAcctNumber);
+								 
+								 log.info("Which account are we sending to?");
+								 transEntry.setRecipient(Integer.parseInt(sc.nextLine()));
+								 
+									log.info("What is the date of this transaction being posted? (Format: YYYY-MM-DD)");
+									String todayDate = sc.nextLine();
+									
+									SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+									sdf.setLenient(false);
+									Date theDate = null;
+									try {
+									 theDate = sdf.parse(todayDate);
+									} catch (ParseException e6) {
+										log.info("Parsing Error");
+									}
+									
+								transEntry.setDate((java.sql.Date) theDate);
+									
+								transEntry.setStatus("Pending");
+								
+								bankCustomerService.postTransfer(transEntry, customerAcctNumber);
 							} catch (BusinessException e) {}
 							break;
 							
@@ -110,13 +142,14 @@ public class bankAppMain {
 							
 						case 5:
 							log.info("Exiting...");
+							endProgram = true;
 							break;
 							
 						default:
 							log.info("Not a valid option. Try again");
 							break;
 						}
-					}while(customerOption!=5);
+					}while(customerOption!=5 && !endProgram);
 					
 					
 					break;
@@ -125,7 +158,7 @@ public class bankAppMain {
 					
 					String usernameE = "";
 					String passwordE = "";
-								
+					String birthDate;		
 						log.info("What is your username?");
 						usernameE = sc.nextLine();
 						log.info("What is your password?");
@@ -133,10 +166,14 @@ public class bankAppMain {
 						
 					try {
 						bankEmployeeService.employeeLogin(usernameE, passwordE);
+						
 					} catch (BusinessException e2) {
 					}
 					
 					do {
+						log.info("Another day, another dollar, "+usernameE+"! Here is the Option Menu!:\n1) Create User\n2) Create Account\n3) Delete User\n4) Delete Account\n5) View Accounts  \n6) Accept/Reject Pending Accounts\n7) View Transaction(s)\n8) Exit");
+						customerOption = Integer.parseInt(sc.nextLine());
+						
 						switch(employeeOption) {
 						
 						case 1://Create User
@@ -155,8 +192,19 @@ public class bankAppMain {
 							newUser.setLname(sc.nextLine());
 							log.info("What is your gender?");
 							newUser.setGender(sc.nextLine());
-							log.info("When were you born?");
-							newUser.setDob(sc.nextLine());
+							log.info("When were you born? (Format: YYYY-MM-DD)");
+							birthDate = sc.nextLine();
+							
+							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+							sdf.setLenient(false);
+							Date theDate = null;
+							try {
+								theDate = sdf.parse(birthDate);
+							} catch (ParseException e6) {
+								log.info("Parsing Error");
+							}
+							
+							newUser.setDob((java.sql.Date) theDate);
 							log.info("What is your address?");
 							newUser.setAddress(sc.nextLine());
 							log.info("What city do you live in?");
@@ -179,7 +227,7 @@ public class bankAppMain {
 							double startingBalance = 0.0;
 							accounts newAccount = new accounts();
 							
-							newAccount.setAcctnum(rand.nextInt(1000000)+1);
+							//newAccount.setAcctnum(rand.nextInt(1000000)+1);
 							
 							log.info("What is the username the account is linked to?");
 							newAccount.setUsername(sc.nextLine());
@@ -230,7 +278,7 @@ public class bankAppMain {
 							} catch (BusinessException e2) {}
 							break;
 							
-						case 5: //View Accounts
+						case 5: //View Accounts 
 							
 							log.info("The account(s) you are looking for are under which username?");
 							String acctUsername = sc.nextLine();
@@ -263,6 +311,10 @@ public class bankAppMain {
 							}
 							break;
 							
+						case 8:
+							log.info("Okay, exiting now...");
+							break;
+							
 						default:
 							log.info("Not a valid option. Try again");
 							break;
@@ -287,6 +339,7 @@ public class bankAppMain {
 			log.info("Let's get an account set up for you");
 			
 			users newUser = new users();
+			String birthDate;
 			
 			log.info("What is your username going to be?");
 			newUser.setUsername(sc.nextLine());
@@ -301,8 +354,19 @@ public class bankAppMain {
 			newUser.setLname(sc.nextLine());
 			log.info("What is your gender?");
 			newUser.setGender(sc.nextLine());
-			log.info("When were you born?");
-			newUser.setDob(sc.nextLine());
+			log.info("When were you born? (Format: YYYY-MM-DD)");
+			birthDate = sc.nextLine();
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			sdf.setLenient(false);
+			Date theDate = null;
+			try {
+				theDate = sdf.parse(birthDate);
+			} catch (ParseException e1) {
+				log.info("Parsing Error");
+			}
+			
+			newUser.setDob((java.sql.Date) theDate);
 			log.info("What is your address?");
 			newUser.setAddress(sc.nextLine());
 			log.info("What city do you live in?");
