@@ -97,16 +97,15 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		}while(sumSent<0 && acctBalance < sumSent);
 
 
-			String sql1 = "insert into \"bankApp\".transactions(transnum, type, sender, recipient, amount, date, status) values(?, ?, ?, ?, ?, ?, ?)";
+			String sql1 = "insert into \"bankApp\".transactions(type, sender, recipient, amount, date, status) values(?, ?, ?, ?, ?, ?, ?)";
 			 PreparedStatement preparedStatement1= connection.prepareStatement(sql1);
 			 
-			 preparedStatement1.setInt(1, transEntry.getTransnum());
-			 preparedStatement1.setString(2, transEntry.getType());
-			 preparedStatement1.setInt(3, transEntry.getSender());
-			 preparedStatement1.setInt(4, transEntry.getRecipient());
-			 preparedStatement1.setDouble(5, sumSent);
-			 preparedStatement1.setDate(6, transEntry.getDate());
-			 preparedStatement1.setString(7, transEntry.getStatus());
+			 preparedStatement1.setString(1, transEntry.getType());
+			 preparedStatement1.setInt(2, transEntry.getSender());
+			 preparedStatement1.setInt(3, transEntry.getRecipient());
+			 preparedStatement1.setDouble(4, sumSent);
+			 preparedStatement1.setDate(5, transEntry.getDate());
+			 preparedStatement1.setString(6, transEntry.getStatus());
 			 
 			 c=preparedStatement1.executeUpdate();
 			 
@@ -286,7 +285,8 @@ return;
 		preparedStatement1.setInt(2, accountNumber);
 		c = preparedStatement1.executeUpdate();
 		
-		log.info("What is the date of the withdrawl being done? (Format: YYYY-MM-DD)");
+		
+		log.info("What is the date of the deposit being done? (Format: YYYY-MM-DD)");
 		String todayDate = sc.nextLine();
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -309,16 +309,19 @@ return;
 		 preparedStatement2.setDouble(4, amount);
 		 preparedStatement2.setDate(5, theRealDate);
 		 preparedStatement2.setString(6, "Completed");
-
 		 
-		 c1=preparedStatement.executeUpdate();
-		
+		 c1=preparedStatement2.executeUpdate();	 
+
 		if(c==1) {
-			log.info("Transaction completed.");
+		log.info("Transaction completed.");	
 		}
+			
+		
 		if(c1==1) {
 			log.info("Transaction has been logged.");
+			log.info("");
 		}
+		
 		} catch(ClassNotFoundException | SQLException e) {
 			throw new BusinessException("An Internal error has occured");
 		}

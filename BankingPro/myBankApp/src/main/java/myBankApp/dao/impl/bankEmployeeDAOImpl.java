@@ -117,14 +117,13 @@ return;
 		int c = 0;
 
 		try(Connection connection=postgresqlConnection.getConnection()){
-			String sql = "insert into \"bankApp\".accounts(acctnum, username, type, balance, status) values(nextval(account_sequence), ?, ?, ?, ?)";
+			String sql = "insert into \"bankApp\".accounts(username, type, balance, status) values(?, ?, ?, ?)";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
-			 //preparedStatement.setInt(1, newAccount.getAcctnum());
-			 preparedStatement.setString(2, newAccount.getUsername());
-			 preparedStatement.setString(3, newAccount.getType());
-			 preparedStatement.setDouble(4, newAccount.getBalance());
-			 preparedStatement.setString(5, newAccount.getStatus());
+			 preparedStatement.setString(1, newAccount.getUsername());
+			 preparedStatement.setString(2, newAccount.getType());
+			 preparedStatement.setDouble(3, newAccount.getBalance());
+			 preparedStatement.setString(4, newAccount.getStatus());
 			 
 			 c=preparedStatement.executeUpdate();
 			 

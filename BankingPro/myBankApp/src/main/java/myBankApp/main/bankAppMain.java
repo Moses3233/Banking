@@ -79,7 +79,7 @@ public class bankAppMain {
 						case 1://Deposit into account
 							double depositAmount = 0;
 							
-							log.info("Hom much are we depositing into the account?");
+							log.info("How much are we depositing into the account?");
 							depositAmount = Double.parseDouble(sc.nextLine());
 							try {
 								bankCustomerService.accountDeposit(customerAcctNumber, depositAmount);
@@ -102,7 +102,7 @@ public class bankAppMain {
 							try {
 								transactions transEntry = new transactions();
 								
-								transEntry.setType("'Transfer'");
+								transEntry.setType("Transfer");
 
 								transEntry.setSender(customerAcctNumber);
 								 
@@ -121,7 +121,9 @@ public class bankAppMain {
 										log.info("Parsing Error");
 									}
 									
-								transEntry.setDate((java.sql.Date) theDate);
+									java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
+									
+								transEntry.setDate(theRealDate);
 									
 								transEntry.setStatus("Pending");
 								
