@@ -3,7 +3,6 @@ package myBankApp.main;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -25,7 +24,6 @@ public class bankAppMain {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		Random rand = new Random();
 			
 		int welcomeOption = 0;
 		int userOption = 0;
@@ -108,27 +106,21 @@ public class bankAppMain {
 								 
 								 log.info("Which account are we sending to?");
 								 transEntry.setRecipient(Integer.parseInt(sc.nextLine()));
-								 
-									log.info("What is the date of this transaction being posted? (Format: YYYY-MM-DD)");
-									String todayDate = sc.nextLine();
 									
 									SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 									sdf.setLenient(false);
-									Date theDate = null;
-									try {
-									 theDate = sdf.parse(todayDate);
-									} catch (ParseException e6) {
-										log.info("Parsing Error");
-									}
-									
-									java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
+									Date theDate = new Date();
+	
+								java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
 									
 								transEntry.setDate(theRealDate);
-									
+								
 								transEntry.setStatus("Pending");
 								
 								bankCustomerService.postTransfer(transEntry, customerAcctNumber);
-							} catch (BusinessException e) {}
+							} catch (BusinessException e) {
+								log.info(e);
+							}
 							break;
 							
 						case 4://Accept Transfer
@@ -228,8 +220,6 @@ public class bankAppMain {
 							int acctType = 0;
 							double startingBalance = 0.0;
 							accounts newAccount = new accounts();
-							
-							//newAccount.setAcctnum(rand.nextInt(1000000)+1);
 							
 							log.info("What is the username the account is linked to?");
 							newAccount.setUsername(sc.nextLine());
@@ -390,8 +380,6 @@ public class bankAppMain {
 			int acctType = 0;
 			double startingBalance = 0.0;
 			accounts newAccount = new accounts();
-			
-			newAccount.setAcctnum(rand.nextInt(1000000)+1);
 			
 			log.info("What is the username the account is linked to?");
 			newAccount.setUsername(sc.nextLine());

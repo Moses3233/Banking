@@ -80,11 +80,12 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		double acctBalance = 0.0, sumSent =0.0;
 		
 		try(Connection connection=postgresqlConnection.getConnection()){	
-		
 		String sql = "select * from \"bankApp\".accounts where acctnum = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, accountNumber);
-		ResultSet resultSet = preparedStatement.executeQuery();
+		ResultSet resultSet = preparedStatement.executeQuery();	
+
+		resultSet.next();
 		acctBalance = resultSet.getDouble("balance");
 		 
 		do {
@@ -94,10 +95,10 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		log.info("The amount being sent cannot be lower than or equal to 0");
 		if(acctBalance < sumSent)
 		log.info("You don't have enough in the account to send this");	
-		}while(sumSent<0 && acctBalance < sumSent);
+		}while(sumSent<=0 && acctBalance < sumSent);
 
 
-			String sql1 = "insert into \"bankApp\".transactions(type, sender, recipient, amount, date, status) values(?, ?, ?, ?, ?, ?, ?)";
+			String sql1 = "insert into \"bankApp\".transactions(type, sender, recipient, amount, date, status) values(?, ?, ?, ?, ?, ?)";
 			 PreparedStatement preparedStatement1= connection.prepareStatement(sql1);
 			 
 			 preparedStatement1.setString(1, transEntry.getType());
@@ -111,14 +112,13 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 			 
 			 if(c==1) {
 					log.info("The transfer has been initiated. It will be waiting for acceptance.");
+					log.info("");
 			 }
 			 
 		} catch(ClassNotFoundException | SQLException e) {
-			throw new BusinessException("An Internal error has occured");
+			throw new BusinessException("An Internal error has occured: " + e);
 		}
-		
 return;	
-
 	}
 
 	public void acceptTransfer(int transactionNum) throws BusinessException {
@@ -126,14 +126,14 @@ return;
 		try(Connection connection=postgresqlConnection.getConnection()){	
 		
 		//Transaction information	
-		String sql = "select * from \"bankApp\".transactions where transnum = ?";
+		String sql = "select * from \"bankApp\".transactions where transnum = ?;";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, transactionNum);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
 		//Recipient balance
 		Connection connection0=postgresqlConnection.getConnection();
-		String sql0 = "select balance from \"bankApp\".accounts where acctnum = ?";
+		String sql0 = "select balance from \"bankApp\".accounts where acctnum = ?;";
 		PreparedStatement preparedStatement0 = connection0.prepareStatement(sql0);
 		preparedStatement0.setInt(1, resultSet.getInt("recipient") );
 		ResultSet resultSet0 = preparedStatement0.executeQuery();	
@@ -142,7 +142,7 @@ return;
 		if(resultSet.next() && resultSet0.next()) {
 			
 			Connection connection1=postgresqlConnection.getConnection();
-			String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
+			String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?;";
 			PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
 			preparedStatement1.setDouble(1,resultSet0.getDouble("balance") + resultSet.getDouble("amount"));
 			preparedStatement1.setInt(2, resultSet.getInt("sender"));
@@ -159,23 +159,18 @@ return;
 			if (c1==1)
 			log.info("Recipient account has been updated!");
 			
-			log.info("What is the date of this transaction being accepted? (Format: YYYY-MM-DD)");
-			String todayDate = sc.nextLine();
-			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			sdf.setLenient(false);
-			Date theDate = null;
-			try {
-			 theDate = sdf.parse(todayDate);
-			} catch (ParseException e6) {
-				log.info("Parsing Error");
-			}
+			Date theDate = new Date();
+
+		java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
+
 			
 			//Transaction information	
 			String sql3 = "update \"bankApp\".transactions set status = ?, date = ? where transnum = ?";
 			PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
 			 preparedStatement3.setInt(1,transactionNum);
-			 preparedStatement3.setDate(2, (java.sql.Date) theDate);
+			 preparedStatement3.setDate(2, theRealDate);
 			 preparedStatement3.setString(3, "Completed");
 			 int c2 = preparedStatement3.executeUpdate();
 			
@@ -211,19 +206,11 @@ return;
 		oneAccount.setBalance(resultSet.getDouble("balance") - amount);
 		oneAccount.setStatus(resultSet.getString("status"));	
 		
-		log.info("What is the date of the withdrawl being done? (Format: YYYY-MM-DD)");
-		String todayDate = sc.nextLine();
-		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		sdf.setLenient(false);
-		Date theDate = null;
-		try {
-		theDate = sdf.parse(todayDate);
-		} catch (ParseException e6) {
-			log.info("Parsing Error");
-		}	
-		
-		 java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
+		Date theDate = new Date();
+
+	java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
 		 
 	String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
 	PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
@@ -252,7 +239,6 @@ return;
 	}
 		}
 	} catch(ClassNotFoundException | SQLException e) {
-		log.info(e);
 		throw new BusinessException("An Internal error has occured");
 	}
 	
@@ -285,20 +271,12 @@ return;
 		preparedStatement1.setInt(2, accountNumber);
 		c = preparedStatement1.executeUpdate();
 		
-		
-		log.info("What is the date of the deposit being done? (Format: YYYY-MM-DD)");
-		String todayDate = sc.nextLine();
-		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		sdf.setLenient(false);
-		Date theDate = null;
-		try {
-		theDate = sdf.parse(todayDate);
-		} catch (ParseException e6) {
-			log.info("Parsing Error");
-		}	
-		
-		 java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
+		Date theDate = new Date();
+
+	java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
+
 		
 		String sql2 = "insert into \"bankApp\".transactions(type, sender, recipient, amount, date, status) values(?, ?, ?, ?, ?, ?)";
 		 PreparedStatement preparedStatement2= connection.prepareStatement(sql2);

@@ -649,3 +649,219 @@
 5) Exit 2021-01-12 02:21:20,363 
 {INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 02:24:17,292 
 {INFO} myBankApp.main.bankAppMain	What is the date of this transaction being posted? (Format: YYYY-MM-DD) 2021-01-12 02:25:51,291 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:20:43,863 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:20:43,864 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:20:49,259 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:20:49,770 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:20:51,658 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:20:55,454 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:20:55,457 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:20:55,457 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:21:01,354 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:21:01,355 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:21:19,162 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:21:30,560 
+{INFO} myBankApp.main.bankAppMain	Exiting... 2021-01-12 10:22:20,531 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:22:20,531 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:22:20,531 
+{INFO} myBankApp.main.bankAppMain	Exiting... Have a good day!... 2021-01-12 10:22:23,473 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:25:04,537 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:25:04,538 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:25:07,314 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:25:07,993 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:25:09,922 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:25:12,769 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:25:12,771 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:25:12,771 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:25:18,385 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:25:18,386 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:25:24,602 
+{INFO} myBankApp.main.bankAppMain	myBankApp.exception.BusinessException: An Internal error has occured 2021-01-12 10:25:33,939 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:25:33,939 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:36:47,224 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:36:47,224 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:36:49,539 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:36:50,514 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:36:53,355 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:36:56,387 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:36:56,389 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:36:56,389 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:37:14,530 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:37:14,530 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:37:42,964 
+{INFO} myBankApp.main.bankAppMain	myBankApp.exception.BusinessException: An Internal error has occured 2021-01-12 10:37:45,764 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:37:45,764 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:38:51,992 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:38:51,995 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:38:54,707 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:38:55,098 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:38:56,771 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:39:01,249 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:39:01,251 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:39:01,251 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:39:05,498 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:39:05,499 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:39:10,739 
+{INFO} myBankApp.main.bankAppMain	checkpoint 2021-01-12 10:39:12,941 
+{INFO} myBankApp.main.bankAppMain	myBankApp.exception.BusinessException: An Internal error has occured 2021-01-12 10:39:12,993 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:39:12,993 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:43:42,021 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:43:42,021 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:43:45,612 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:43:46,603 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:43:48,755 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:43:52,322 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:43:52,324 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:43:52,324 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:43:57,795 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:43:57,795 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:44:03,028 
+{INFO} myBankApp.main.bankAppMain	myBankApp.exception.BusinessException: An Internal error has occured 2021-01-12 10:44:10,382 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:44:10,382 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:47:11,305 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:47:11,306 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:47:36,899 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:47:38,107 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:47:40,355 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:47:43,821 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:47:43,823 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:47:43,823 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:47:50,107 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:47:50,107 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:47:52,595 
+{INFO} myBankApp.main.bankAppMain	myBankApp.exception.BusinessException: An Internal error has occured 2021-01-12 10:47:55,039 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:47:55,039 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:48:34,969 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:48:34,970 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:48:37,459 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:48:37,939 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:48:40,363 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:48:43,497 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:48:43,499 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:48:43,499 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:48:59,531 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:48:59,531 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:49:10,987 
+{INFO} myBankApp.main.bankAppMain	myBankApp.exception.BusinessException: An Internal error has occured 2021-01-12 10:50:06,278 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:50:06,278 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 10:53:23,911 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 10:53:23,912 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 10:53:33,067 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 10:53:33,587 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 10:53:35,474 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 10:53:38,758 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 10:53:38,760 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 10:53:38,760 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 10:53:44,572 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:53:44,572 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 10:53:46,676 
+{INFO} myBankApp.main.bankAppMain	myBankApp.exception.BusinessException: An Internal error has occured: org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next. 2021-01-12 10:53:50,279 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 10:53:50,279 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 11:01:19,548 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 11:01:19,549 
+{INFO} myBankApp.main.bankAppMain	Are you an employee or customer? Press "1" for Customer or Press "2" for Employee 2021-01-12 11:01:22,084 
+{INFO} myBankApp.main.bankAppMain	What is your username? 2021-01-12 11:01:22,924 
+{INFO} myBankApp.main.bankAppMain	What is your password? 2021-01-12 11:01:24,507 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Login succeeded! Welcome, Rex 2021-01-12 11:01:28,253 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	995100 2021-01-12 11:01:28,255 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	Which account are you looking into? 2021-01-12 11:01:28,256 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	 2021-01-12 11:01:32,627 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 11:01:32,628 
+{INFO} myBankApp.main.bankAppMain	Which account are we sending to? 2021-01-12 11:01:34,829 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	What is the amount being sent? 2021-01-12 11:01:37,344 
+{INFO} myBankApp.dao.impl.bankCustomerDAOImpl	The transfer has been initiated. It will be waiting for acceptance. 2021-01-12 11:01:41,257 
+{INFO} myBankApp.main.bankAppMain	Hello! Here is the Option Menu!:
+1) Deposit into account
+2) Withdraw from account
+3) Post Transfer
+4) Accept Transfer
+5) Exit 2021-01-12 11:01:41,258 
+{INFO} myBankApp.main.bankAppMain	Exiting... 2021-01-12 11:12:04,693 
+{INFO} myBankApp.main.bankAppMain	Welcome to the BankApp! Do you already have an account with us? 2021-01-12 11:12:04,693 
+{INFO} myBankApp.main.bankAppMain	Enter "1" for yes, "2" for no, or "3" to Exit 2021-01-12 11:12:04,693 
+{INFO} myBankApp.main.bankAppMain	Exiting... Have a good day!... 2021-01-12 11:12:06,540 
