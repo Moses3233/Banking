@@ -49,11 +49,11 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 			return;
 	}
 
-	public void createUser(users newUser) throws BusinessException {
+	public int createUser(users newUser) throws BusinessException {
 		int c = 0;
 		
 		try(Connection connection=postgresqlConnection.getConnection()){
-			String sql = "INSERT INTO \"bankApp\".users(username, password, email, role, fname, lname, gender, dob, address, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO \"bankApp\".users(username, password, email, role, fname, lname, gender, dob, address, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
 			 preparedStatement.setString(1, newUser.getUsername());
@@ -76,12 +76,13 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 				 log.info("Congratulations! You successfully created an account!");
 			 
 		} catch(ClassNotFoundException | SQLException e) {
+			log.info(e);
 			throw new BusinessException("An Internal error has occured");
 		}
-return;		
+return c;		
 	}
 	
-	public void deleteUser(String username) throws BusinessException {
+	public int deleteUser(String username) throws BusinessException {
 		int c = 0;
 		int c1 = 0;
 		try(Connection connection=postgresqlConnection.getConnection()){
@@ -90,13 +91,13 @@ return;
 			 preparedStatement.setString(1, username);
 			 c=preparedStatement.executeUpdate();
 
-				try(Connection connection1=postgresqlConnection.getConnection()){
+				try {
 					String sql1 = "delete from \"bankApp\".accounts where username = ?";
-					PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
+					PreparedStatement preparedStatement1= connection.prepareStatement(sql1);
 					preparedStatement1.setString(1, username);
 					c1=preparedStatement1.executeUpdate();
 
-				} catch(ClassNotFoundException | SQLException e) {
+				} catch(SQLException e) {
 					throw new BusinessException("An Internal error has occured");
 				}
 			 
@@ -108,12 +109,13 @@ return;
 					 }
 		
 		} catch(ClassNotFoundException | SQLException e) {
+			log.info(e);
 			throw new BusinessException("An Internal error has occured");
 		}
-return;		
+return c;		
 	}
 
-	public void createAccount(accounts newAccount) throws BusinessException {
+	public int createAccount(accounts newAccount) throws BusinessException {
 		int c = 0;
 
 		try(Connection connection=postgresqlConnection.getConnection()){
@@ -132,13 +134,14 @@ return;
 			 		log.info("Your account number is: " + newAccount.getAcctnum());
 			 }
 		} catch(ClassNotFoundException | SQLException e) {
+			log.info(e);
 			throw new BusinessException("An Internal error has occured");
 		}
 		
-return;	
+return c;	
 	}
 
-	public void deleteAccount(int accountNumber) throws BusinessException {
+	public int deleteAccount(int accountNumber) throws BusinessException {
 		int c = 0;
 
 		try(Connection connection=postgresqlConnection.getConnection()){
@@ -154,10 +157,10 @@ return;
 			throw new BusinessException("An Internal error has occured");
 		}
 		
-return;	
+return c;	
 	}
 
-	public void approveRejectAccount(int accountNumber) throws BusinessException {
+	public int approveRejectAccount(int accountNumber) throws BusinessException {
 		
 		int pendingChoice = 0;
 		int c;
@@ -183,21 +186,19 @@ return;
 			}while(pendingChoice!=1 && pendingChoice!=2);
 			
 			if(pendingChoice == 1) {
-				Connection connection1=postgresqlConnection.getConnection();
 					String sql1 = "update \"bankApp\".accounts set status='ACTIVE' where acctnum = ?";
-					PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
+					PreparedStatement preparedStatement1= connection.prepareStatement(sql1);
 					preparedStatement1.setInt(1, accountNumber);
-					c = preparedStatement1.executeUpdate(sql1);
+					c = preparedStatement1.executeUpdate();
 					if (c==1)
 					log.info("Account has been approved!");
 			}
 			
 			else{
-				Connection connection1=postgresqlConnection.getConnection();
 				String sql1 = "delete from \"bankApp\".accounts where acctnum = ?";
-				PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
+				PreparedStatement preparedStatement1= connection.prepareStatement(sql1);
 				preparedStatement1.setInt(1, accountNumber);
-				c = preparedStatement1.executeUpdate(sql1);
+				c = preparedStatement1.executeUpdate();
 				if (c==1)
 				log.info("Account has been rejected and removed!");
 			}
@@ -210,7 +211,7 @@ return;
 			throw new BusinessException("An Internal error has occured");
 		}
 			
-			return;
+			return c;
 	}
 
 	public List<accounts> viewAccounts(String username) throws BusinessException {
@@ -268,6 +269,35 @@ return;
 			}
 			if(TransactionList.size()==0){
 				throw new BusinessException("No Transactions in the database for the account number: " + accountNumber);
+			}
+			} catch (ClassNotFoundException | SQLException e) {
+				throw new BusinessException("An Internal error has occured");
+			}
+	
+		return TransactionList;
+	}
+	
+	public List<transactions> viewAllTransactions() throws BusinessException {
+
+		List<transactions> TransactionList = new ArrayList<>();
+		try(Connection connection=postgresqlConnection.getConnection()){
+			String sql = "select * from \"bankApp\".transactions";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				transactions tranEntry = new transactions();
+				tranEntry.setTransnum(resultSet.getInt("transnum"));
+				tranEntry.setType(resultSet.getString("type"));
+				tranEntry.setSender(resultSet.getInt("sender"));
+				tranEntry.setRecipient(resultSet.getInt("recipient"));
+				tranEntry.setAmount(resultSet.getInt("amount"));
+				tranEntry.setDate(resultSet.getDate("date"));
+				tranEntry.setStatus(resultSet.getString("status"));
+				TransactionList.add(tranEntry);
+			}
+			if(TransactionList.size()==0){
+				throw new BusinessException("No Transactions in the database");
 			}
 			} catch (ClassNotFoundException | SQLException e) {
 				throw new BusinessException("An Internal error has occured");

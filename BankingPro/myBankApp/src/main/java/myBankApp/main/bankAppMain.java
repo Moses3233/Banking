@@ -132,6 +132,7 @@ public class bankAppMain {
 							try {
 								bankCustomerService.acceptTransfer(transactionNum);
 							} catch (BusinessException e) {}
+							
 							break;
 							
 						case 5:
@@ -165,8 +166,8 @@ public class bankAppMain {
 					}
 					
 					do {
-						log.info("Another day, another dollar, "+usernameE+"! Here is the Option Menu!:\n1) Create User\n2) Create Account\n3) Delete User\n4) Delete Account\n5) View Accounts  \n6) Accept/Reject Pending Accounts\n7) View Transaction(s)\n8) Exit");
-						customerOption = Integer.parseInt(sc.nextLine());
+						log.info("Another day, another dollar! Here is the Option Menu!:\n1) Create User\n2) Create Account\n3) Delete User\n4) Delete Account\n5) View Accounts  \n6) Accept/Reject Pending Accounts\n7) View Transaction(s)\n8) View All Transactions \n9) Exit");
+						employeeOption = Integer.parseInt(sc.nextLine());
 						
 						switch(employeeOption) {
 						
@@ -275,7 +276,7 @@ public class bankAppMain {
 							log.info("The account(s) you are looking for are under which username?");
 							String acctUsername = sc.nextLine();
 							try {
-								bankEmployeeService.viewAccounts(acctUsername);
+								log.info(bankEmployeeService.viewAccounts(acctUsername));
 							} catch (BusinessException e1) {
 							}
 							
@@ -298,12 +299,22 @@ public class bankAppMain {
 							int acctNumber = Integer.parseInt(sc.nextLine());
 							
 							try {
-								bankEmployeeService.viewTransactions(acctNumber);
+								log.info(bankEmployeeService.viewTransactions(acctNumber));
 							} catch (BusinessException e) {
 							}
 							break;
 							
-						case 8:
+						case 8://View All Transaction(s)
+							
+							log.info("Pulling up all transactions...");
+							
+							try {
+								log.info(bankEmployeeService.viewAllTransactions());
+							} catch (BusinessException e) {
+							}
+							break;
+							
+						case 9:
 							log.info("Okay, exiting now...");
 							break;
 							
@@ -312,7 +323,7 @@ public class bankAppMain {
 							break;
 						}
 						
-					}while(employeeOption!=8);
+					}while(employeeOption!=9);
 					
 					break;
 					

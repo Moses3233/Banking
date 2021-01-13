@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,19 +39,26 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 				
 				try {	
 					if(resultSet.next()) {
-					log.info("Login succeeded! Welcome, " + usernameX);		
+					log.info("Login succeeded! Welcome, " + usernameX +".");		
 					
 					String sql1 = "SELECT acctnum FROM \"bankApp\".accounts where username = ? ;";
 					PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
 					preparedStatement1.setString(1, usernameX);
 					ResultSet resultSet1 = preparedStatement1.executeQuery();
-			
+					
+					log.info("");
+					log.info("_____________________");
+
 					while(resultSet1.next()) {
 						log.info(resultSet1.getInt("acctnum"));
 						Integer acctNum = (Integer) resultSet1.getInt("acctnum");
 						acctNumList.add(acctNum);
-					}		
-					log.info("Which account are you looking into?");
+					}	
+					
+					log.info("_____________________");
+					log.info("");
+					
+					log.info("Which of these accounts are you looking into?");
 					int anAcctNum = Integer.parseInt(sc.nextLine());
 					
 					if(acctNumList.contains((Integer)anAcctNum)){
@@ -74,7 +80,7 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		return loginAcctNum;
 	}
 
-	public void postTransfer(transactions transEntry, int accountNumber) throws BusinessException {
+	public int postTransfer(transactions transEntry, int accountNumber) throws BusinessException {
 
 		int c = 0;
 		double acctBalance = 0.0, sumSent =0.0;
@@ -118,11 +124,11 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		} catch(ClassNotFoundException | SQLException e) {
 			throw new BusinessException("An Internal error has occured: " + e);
 		}
-return;	
+return c;	
 	}
 
-	public void acceptTransfer(int transactionNum) throws BusinessException {
-
+	public int acceptTransfer(int transactionNum) throws BusinessException {
+		int c2 = 0;
 		try(Connection connection=postgresqlConnection.getConnection()){	
 		
 		//Transaction information	
@@ -130,32 +136,31 @@ return;
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, transactionNum);
 		ResultSet resultSet = preparedStatement.executeQuery();
+		resultSet.next();
+		
 		
 		//Recipient balance
-		Connection connection0=postgresqlConnection.getConnection();
 		String sql0 = "select balance from \"bankApp\".accounts where acctnum = ?;";
-		PreparedStatement preparedStatement0 = connection0.prepareStatement(sql0);
+		PreparedStatement preparedStatement0 = connection.prepareStatement(sql0);
 		preparedStatement0.setInt(1, resultSet.getInt("recipient") );
 		ResultSet resultSet0 = preparedStatement0.executeQuery();	
 		
 		//Query run
-		if(resultSet.next() && resultSet0.next()) {
+		if(resultSet0.next()) {
 			
-			Connection connection1=postgresqlConnection.getConnection();
 			String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?;";
-			PreparedStatement preparedStatement1= connection1.prepareStatement(sql1);
+			PreparedStatement preparedStatement1= connection.prepareStatement(sql1);
 			preparedStatement1.setDouble(1,resultSet0.getDouble("balance") + resultSet.getDouble("amount"));
 			preparedStatement1.setInt(2, resultSet.getInt("sender"));
-			int c = preparedStatement1.executeUpdate(sql1);
+			int c = preparedStatement1.executeUpdate();
 			if (c==1)
 			log.info("Sender account has been updated!");
 			
-			Connection connection2=postgresqlConnection.getConnection();
 			String sql2 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
-			PreparedStatement preparedStatement2= connection2.prepareStatement(sql2);
+			PreparedStatement preparedStatement2= connection.prepareStatement(sql2);
 			preparedStatement2.setDouble(1,resultSet0.getDouble("balance") - resultSet.getDouble("amount"));
 			preparedStatement2.setInt(2, resultSet.getInt("recipient"));
-			int c1 = preparedStatement2.executeUpdate(sql2);
+			int c1 = preparedStatement2.executeUpdate();
 			if (c1==1)
 			log.info("Recipient account has been updated!");
 			
@@ -169,10 +174,12 @@ return;
 			//Transaction information	
 			String sql3 = "update \"bankApp\".transactions set status = ?, date = ? where transnum = ?";
 			PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
-			 preparedStatement3.setInt(1,transactionNum);
+			 preparedStatement3.setString(1, "Completed");
 			 preparedStatement3.setDate(2, theRealDate);
-			 preparedStatement3.setString(3, "Completed");
-			 int c2 = preparedStatement3.executeUpdate();
+			 preparedStatement3.setInt(3,transactionNum);
+			 
+			 
+			 c2 = preparedStatement3.executeUpdate();
 			
 			if (c2==1)
 				log.info("Transfer has been completed!");
@@ -180,12 +187,13 @@ return;
 	}
 		else {log.info("No transfer was found with this number.");}
 		} catch(ClassNotFoundException | SQLException e) {
+			log.info(e);
 			throw new BusinessException("An Internal error has occured");
 		}
-		
+	return c2;	
 	}
 
-	public void accountWithdrawl(int accountNumber, double amount) throws BusinessException {
+	public int accountWithdrawl(int accountNumber, double amount) throws BusinessException {
 		int c = 0;
 		int c1 = 0;
 		accounts oneAccount = new accounts();
@@ -241,10 +249,10 @@ return;
 	} catch(ClassNotFoundException | SQLException e) {
 		throw new BusinessException("An Internal error has occured");
 	}
-	
+	return c1;
 	}
 
-	public void accountDeposit(int accountNumber, double amount) throws BusinessException {
+	public int accountDeposit(int accountNumber, double amount) throws BusinessException {
 			int c = 0;
 			int c1 = 0;
 			accounts oneAccount = new accounts();
@@ -303,7 +311,7 @@ return;
 		} catch(ClassNotFoundException | SQLException e) {
 			throw new BusinessException("An Internal error has occured");
 		}
-		
+		return c1;
 	}
 
 

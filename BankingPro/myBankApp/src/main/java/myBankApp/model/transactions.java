@@ -76,7 +76,7 @@ public class transactions {
 	@Override
 	public String toString() {
 		
-	return "Transaction [Transaction Number: " + transnum +", Transaction Type: " + type + ", Sender: " + sender + ", Recipient: " +recipient+ ", Amount: " + amount +", Date: "+date+", Status: "+status+" ]";
+	return "Transaction [Transaction Number: " + transnum +", Transaction Type: " + type + ", Sender: " + sender + ", Recipient: " +recipient+ ", Amount: " + amount +", Date: "+date+", Status: "+status+" ]\n";
 
 	}
 
