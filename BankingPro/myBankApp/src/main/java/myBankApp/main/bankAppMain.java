@@ -174,9 +174,9 @@ public class bankAppMain {
 						case 1://Create User
 							
 							users newUser = new users();
-							String email = "";
-							int validEmail = 0;
-							
+							String email = "", ZIP;
+							int validEmail = 0, validZIP = 0;
+				
 							log.info("What is your username going to be?");
 							newUser.setUsername(sc.nextLine());
 							log.info("What is your password going to be");
@@ -216,8 +216,16 @@ public class bankAppMain {
 							newUser.setCity(sc.nextLine());
 							log.info("What state do you live in?");
 							newUser.setState(sc.nextLine());
-							log.info("What is your Zip Code?");
-							newUser.setZip(sc.nextLine());
+							
+
+							do {
+							log.info("What is your Zip Code? Enter a valid Zip");
+							ZIP = sc.nextLine();
+							if(ZIP.matches("[0-9]{5}")) {
+								validZIP = 1;
+							}
+							}while(validZIP ==0);
+							
 							log.info("What Country do you reside in?");
 							newUser.setCountry(sc.nextLine());
 							
@@ -352,14 +360,23 @@ public class bankAppMain {
 			log.info("Let's get an account set up for you");
 			
 			users newUser = new users();
-			String birthDate;
+			String birthDate, email, ZIP;
+			int validEmail = 0, validZIP = 0;
 			
 			log.info("What is your username going to be?");
 			newUser.setUsername(sc.nextLine());
 			log.info("What is your password going to be");
 			newUser.setPassword(sc.nextLine());
-			log.info("What is your E-mail address?");
-			newUser.setEmail(sc.nextLine());
+			
+			do {
+			log.info("What is your E-mail address? Enter a valid email");
+			email = sc.nextLine();
+			if(email.matches("[a-zA-Z0-9]{1,}[@]{1}[a-z]{1,}[.]{1}[a-z]{2,3}")) {
+				validEmail = 1;
+			}
+			}while(validEmail ==0);
+			
+			newUser.setEmail(email);
 			newUser.setRole("Customer");
 			log.info("What is your first name?");
 			newUser.setFname(sc.nextLine());
@@ -386,8 +403,15 @@ public class bankAppMain {
 			newUser.setCity(sc.nextLine());
 			log.info("What state do you live in?");
 			newUser.setState(sc.nextLine());
-			log.info("What is your Zip Code?");
-			newUser.setZip(sc.nextLine());
+			
+			do {
+			log.info("What is your Zip Code? Enter a valid Zip");
+			ZIP = sc.nextLine();
+			if(ZIP.matches("[0-9]{5}")) {
+				validZIP = 1;
+			}
+			}while(validZIP ==0);
+			
 			log.info("What Country do you reside in?");
 			newUser.setCountry(sc.nextLine());
 			
