@@ -211,7 +211,13 @@ return c;
 		oneAccount.setAcctnum(accountNumber);
 		oneAccount.setUsername(resultSet.getString("username"));
 		oneAccount.setType(resultSet.getString("type"));
+		if(amount<0) {throw new BusinessException("No Negative Numbers");}
+		if(resultSet.getDouble("balance") - amount >= 0) {
 		oneAccount.setBalance(resultSet.getDouble("balance") - amount);
+		}
+		else {
+			throw new BusinessException("Cannot withdraw THIS much! Exiting now...");
+			}
 		oneAccount.setStatus(resultSet.getString("status"));	
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
