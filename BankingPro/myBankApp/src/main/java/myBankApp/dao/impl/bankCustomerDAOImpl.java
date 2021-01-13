@@ -101,7 +101,7 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		log.info("The amount being sent cannot be lower than or equal to 0");
 		if(acctBalance < sumSent)
 		log.info("You don't have enough in the account to send this");	
-		}while(sumSent<=0 && acctBalance < sumSent);
+		}while(sumSent<=0 || acctBalance < sumSent);
 
 
 			String sql1 = "insert into \"bankApp\".transactions(type, sender, recipient, amount, date, status) values(?, ?, ?, ?, ?, ?)";
@@ -156,7 +156,7 @@ return c;
 			if (c==1)
 			log.info("Sender account has been updated!");
 			
-			String sql2 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
+			String sql2 = "update \"bankApp\".accounts set balance = ? where acctnum = ?;";
 			PreparedStatement preparedStatement2= connection.prepareStatement(sql2);
 			preparedStatement2.setDouble(1,resultSet0.getDouble("balance") - resultSet.getDouble("amount"));
 			preparedStatement2.setInt(2, resultSet.getInt("recipient"));
@@ -172,7 +172,7 @@ return c;
 
 			
 			//Transaction information	
-			String sql3 = "update \"bankApp\".transactions set status = ?, date = ? where transnum = ?";
+			String sql3 = "update \"bankApp\".transactions set status = ?, date = ? where transnum = ?;";
 			PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
 			 preparedStatement3.setString(1, "Completed");
 			 preparedStatement3.setDate(2, theRealDate);
@@ -201,7 +201,7 @@ return c;
 		
 	try(Connection connection=postgresqlConnection.getConnection()){	
 	
-		String sql = "select * from \"bankApp\".accounts where acctnum = ?";
+		String sql = "select * from \"bankApp\".accounts where acctnum = ?;";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, accountNumber);
 		ResultSet resultSet = preparedStatement.executeQuery();
@@ -220,7 +220,7 @@ return c;
 
 	java.sql.Date theRealDate = new java.sql.Date(theDate.getTime());
 		 
-	String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
+	String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?;";
 	PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
 	preparedStatement1.setDouble(1, oneAccount.getBalance());
 	preparedStatement1.setInt(2, accountNumber);
@@ -230,11 +230,11 @@ return c;
 		log.info("Transaction completed.");
 	}
 	
-	String sql2 = "insert into \"bankApp\".transactions( type, sender, recipient, amount, date, status) values( ?, ?, ?, ?, ?, ?)";
+	String sql2 = "insert into \"bankApp\".transactions( type, sender, recipient, amount, date, status) values( ?, ?, ?, ?, ?, ?);";
 	 PreparedStatement preparedStatement2= connection.prepareStatement(sql2);
 	 
 	 preparedStatement2.setString(1, "Withdrawl");
-	 preparedStatement2.setInt(2, 0);
+	 preparedStatement2.setInt(2, 2);
 	 preparedStatement2.setInt(3, accountNumber);
 	 preparedStatement2.setDouble(4, amount);
 	 preparedStatement2.setDate(5, theRealDate);
@@ -247,6 +247,7 @@ return c;
 	}
 		}
 	} catch(ClassNotFoundException | SQLException e) {
+		log.info(e);
 		throw new BusinessException("An Internal error has occured");
 	}
 	return c1;
@@ -260,7 +261,7 @@ return c;
 		try(Connection connection=postgresqlConnection.getConnection()){	
 		
 			
-			String sql = "select * from \"bankApp\".accounts where acctnum = ?";
+			String sql = "select * from \"bankApp\".accounts where acctnum = ?;";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -273,7 +274,7 @@ return c;
 			oneAccount.setStatus(resultSet.getString("status"));	
 			}
 			
-		String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?";
+		String sql1 = "update \"bankApp\".accounts set balance = ? where acctnum = ?;";
 		PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
 		preparedStatement1.setDouble(1, oneAccount.getBalance());
 		preparedStatement1.setInt(2, accountNumber);
@@ -291,7 +292,7 @@ return c;
 		 
 		 preparedStatement2.setString(1, "Deposit");
 		 preparedStatement2.setInt(2, accountNumber);
-		 preparedStatement2.setInt(3, 0);
+		 preparedStatement2.setInt(3, 2);
 		 preparedStatement2.setDouble(4, amount);
 		 preparedStatement2.setDate(5, theRealDate);
 		 preparedStatement2.setString(6, "Completed");
@@ -309,6 +310,7 @@ return c;
 		}
 		
 		} catch(ClassNotFoundException | SQLException e) {
+			log.info(e);
 			throw new BusinessException("An Internal error has occured");
 		}
 		return c1;

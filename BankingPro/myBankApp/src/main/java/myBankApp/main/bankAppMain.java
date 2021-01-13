@@ -62,7 +62,6 @@ public class bankAppMain {
 					try {
 					customerAcctNumber = bankCustomerService.customerLogin(usernameX,passwordX);
 					} catch (BusinessException e6) {
-						// TODO Auto-generated catch block
 						e6.printStackTrace();
 					}
 					
@@ -81,7 +80,8 @@ public class bankAppMain {
 							depositAmount = Double.parseDouble(sc.nextLine());
 							try {
 								bankCustomerService.accountDeposit(customerAcctNumber, depositAmount);
-							} catch (BusinessException e2) {}
+							} catch (BusinessException e2) {
+							}
 							break;
 							
 						case 2://Withdraw from account
@@ -92,7 +92,8 @@ public class bankAppMain {
 							
 							try {
 								bankCustomerService.accountWithdrawl(customerAcctNumber, withdrawAmount);
-							} catch (BusinessException e1) {log.info("Error in the withdrawing");}
+							} catch (BusinessException e1) {
+								log.info("Error in the withdrawing");}
 							
 							break;
 							

@@ -51,13 +51,13 @@ class bankAppEmployeeTests {
 
 	@Test
 	void testApproveRejectAccount() throws BusinessException {
-		assertEquals(1, testEmployee.approveRejectAccount(10));
+		assertEquals(1, testEmployee.approveRejectAccount(1));
 	}
 
 
 	@Test
 	void testDeleteAccount() throws BusinessException {
-		assertEquals(1, testEmployee.deleteAccount(10));
+		assertEquals(1, testEmployee.deleteAccount(15));
 	}
 		
 	@Test
