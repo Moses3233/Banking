@@ -2,9 +2,6 @@ package myBankApp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +20,7 @@ class bankAppEmployeeTests {
 		users newUser = new users();
 		newUser.setUsername("Fake");
 		newUser.setPassword("User");
-		newUser.setEmail("Unreal");
+		newUser.setEmail("Unreal@email.com");
 		newUser.setRole("Customer");
 		newUser.setFname("Fake");
 		newUser.setLname("Person");
@@ -54,13 +51,13 @@ class bankAppEmployeeTests {
 
 	@Test
 	void testApproveRejectAccount() throws BusinessException {
-		assertEquals(1, testEmployee.approveRejectAccount(6));
+		assertEquals(1, testEmployee.approveRejectAccount(10));
 	}
 
 
 	@Test
 	void testDeleteAccount() throws BusinessException {
-		assertEquals(1, testEmployee.deleteAccount(6));
+		assertEquals(1, testEmployee.deleteAccount(10));
 	}
 		
 	@Test

@@ -174,12 +174,22 @@ public class bankAppMain {
 						case 1://Create User
 							
 							users newUser = new users();
+							String email = "";
+							int validEmail = 0;
+							
 							log.info("What is your username going to be?");
 							newUser.setUsername(sc.nextLine());
 							log.info("What is your password going to be");
 							newUser.setPassword(sc.nextLine());
-							log.info("What is your E-mail address?");
-							newUser.setEmail(sc.nextLine());
+							do {
+							log.info("What is your E-mail address? Enter a valid email");
+							email = sc.nextLine();
+							if(email.matches("[a-zA-Z0-9]{1,}[@]{1}[a-z]{1,}[.]{1}[a-z]{2,3}")) {
+								validEmail = 1;
+							}
+							}while(validEmail ==0);
+							
+							newUser.setEmail(email);
 							newUser.setRole("Customer");
 							log.info("What is your first name?");
 							newUser.setFname(sc.nextLine());
