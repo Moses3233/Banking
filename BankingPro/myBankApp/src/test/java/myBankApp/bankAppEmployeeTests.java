@@ -5,19 +5,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import myBankApp.dao.impl.bankEmployeeDAOImpl;
+import myBankApp.dao.impl.BankEmployeeDAOImpl;
 import myBankApp.exception.BusinessException;
-import myBankApp.model.accounts;
-import myBankApp.model.users;
+import myBankApp.model.Accounts;
+import myBankApp.model.Users;
 
 class bankAppEmployeeTests {
 
-	bankEmployeeDAOImpl testEmployee = new bankEmployeeDAOImpl();
+	BankEmployeeDAOImpl testEmployee = new BankEmployeeDAOImpl();
 
 	
 	@Test
 	void testCreateUser() throws BusinessException {
-		users newUser = new users();
+		Users newUser = new Users();
 		newUser.setUsername("Fake");
 		newUser.setPassword("User");
 		newUser.setEmail("Unreal@email.com");
@@ -39,7 +39,7 @@ class bankAppEmployeeTests {
 	@Test
 	void testCreateAccount() throws BusinessException {
 
-		accounts newAccount = new accounts();
+		Accounts newAccount = new Accounts();
 		
 		newAccount.setUsername("Rex");
 		newAccount.setType("Checking");

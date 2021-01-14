@@ -11,23 +11,23 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import myBankApp.dao.bankEmployeeDAO;
-import myBankApp.dao.dbutil.postgresqlConnection;
+import myBankApp.dao.BankEmployeeDAO;
+import myBankApp.dao.dbutil.PostgresqlConnection;
 import myBankApp.exception.BusinessException;
-import myBankApp.model.accounts;
-import myBankApp.model.transactions;
-import myBankApp.model.users;
+import myBankApp.model.Accounts;
+import myBankApp.model.Transactions;
+import myBankApp.model.Users;
 
-public class bankEmployeeDAOImpl implements bankEmployeeDAO{
+public class BankEmployeeDAOImpl implements BankEmployeeDAO{
 
 
-	Logger log = Logger.getLogger(bankEmployeeDAOImpl.class);
+	Logger log = Logger.getLogger(BankEmployeeDAOImpl.class);
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
 	
 	public void employeeLogin(String usernameX, String passwordX) throws BusinessException {
 
-		try(Connection connection=postgresqlConnection.getConnection()){
+		try(Connection connection=PostgresqlConnection.getConnection()){
 				
 			String sql = "select * from \"bankApp\".users where role = 'Employee' AND username = ? AND password = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -49,10 +49,10 @@ public class bankEmployeeDAOImpl implements bankEmployeeDAO{
 			return;
 	}
 
-	public int createUser(users newUser) throws BusinessException {
+	public int createUser(Users newUser) throws BusinessException {
 		int c = 0;
 		
-		try(Connection connection=postgresqlConnection.getConnection()){
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			String sql = "INSERT INTO \"bankApp\".users(username, password, email, role, fname, lname, gender, dob, address, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
@@ -85,7 +85,7 @@ return c;
 	public int deleteUser(String username) throws BusinessException {
 		int c = 0;
 		int c1 = 0;
-		try(Connection connection=postgresqlConnection.getConnection()){
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			String sql = "delete from \"bankApp\".users where username = ?";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 preparedStatement.setString(1, username);
@@ -115,10 +115,10 @@ return c;
 return c;		
 	}
 
-	public int createAccount(accounts newAccount) throws BusinessException {
+	public int createAccount(Accounts newAccount) throws BusinessException {
 		int c = 0;
 
-		try(Connection connection=postgresqlConnection.getConnection()){
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			String sql = "insert into \"bankApp\".accounts(username, type, balance, status) values(?, ?, ?, ?)";
 			 PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			 
@@ -144,7 +144,7 @@ return c;
 	public int deleteAccount(int accountNumber) throws BusinessException {
 		int c = 0;
 
-		try(Connection connection=postgresqlConnection.getConnection()){
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			String sql = "delete from \"bankApp\".accounts where acctnum = ?";
 			PreparedStatement preparedStatement= connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
@@ -164,16 +164,16 @@ return c;
 		
 		int pendingChoice = 0;
 		int c;
-		accounts pendingAccount = null;
+		Accounts pendingAccount = null;
 
-		try(Connection connection=postgresqlConnection.getConnection()){
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			String sql = "select * from \"bankApp\".accounts where acctnum = ? AND status = 'PENDING'";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-			pendingAccount = new accounts();
+			pendingAccount = new Accounts();
 			pendingAccount.setAcctnum(accountNumber);
 			pendingAccount.setUsername(resultSet.getString("username"));
 			pendingAccount.setType(resultSet.getString("type"));
@@ -214,11 +214,11 @@ return c;
 			return c;
 	}
 
-	public List<accounts> viewAccounts(String username) throws BusinessException {
+	public List<Accounts> viewAccounts(String username) throws BusinessException {
 		
-		List<accounts> AccountList = new ArrayList<>();
+		List<Accounts> AccountList = new ArrayList<>();
 		
-		try(Connection connection=postgresqlConnection.getConnection()){
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			
 			String sql = "select * from \"bankApp\".accounts where username = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -226,7 +226,7 @@ return c;
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-			accounts oneAccount = new accounts();
+			Accounts oneAccount = new Accounts();
 			oneAccount.setAcctnum(resultSet.getInt("acctnum"));
 			oneAccount.setUsername(username);
 			oneAccount.setType(resultSet.getString("type"));
@@ -246,10 +246,10 @@ return c;
 			return AccountList;	
 	}
 
-	public List<transactions> viewTransactions(int accountNumber) throws BusinessException {
+	public List<Transactions> viewTransactions(int accountNumber) throws BusinessException {
 
-		List<transactions> TransactionList = new ArrayList<>();
-		try(Connection connection=postgresqlConnection.getConnection()){
+		List<Transactions> TransactionList = new ArrayList<>();
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			String sql = "select * from \"bankApp\".transactions where sender = ? or recipient = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, accountNumber);
@@ -257,7 +257,7 @@ return c;
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				transactions tranEntry = new transactions();
+				Transactions tranEntry = new Transactions();
 				tranEntry.setTransnum(resultSet.getInt("transnum"));
 				tranEntry.setType(resultSet.getString("type"));
 				tranEntry.setSender(resultSet.getInt("sender"));
@@ -277,16 +277,16 @@ return c;
 		return TransactionList;
 	}
 	
-	public List<transactions> viewAllTransactions() throws BusinessException {
+	public List<Transactions> viewAllTransactions() throws BusinessException {
 
-		List<transactions> TransactionList = new ArrayList<>();
-		try(Connection connection=postgresqlConnection.getConnection()){
+		List<Transactions> TransactionList = new ArrayList<>();
+		try(Connection connection=PostgresqlConnection.getConnection()){
 			String sql = "select * from \"bankApp\".transactions";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				transactions tranEntry = new transactions();
+				Transactions tranEntry = new Transactions();
 				tranEntry.setTransnum(resultSet.getInt("transnum"));
 				tranEntry.setType(resultSet.getString("type"));
 				tranEntry.setSender(resultSet.getInt("sender"));

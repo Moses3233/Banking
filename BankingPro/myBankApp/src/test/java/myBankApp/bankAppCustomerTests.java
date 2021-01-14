@@ -3,14 +3,14 @@ package myBankApp;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import myBankApp.dao.impl.bankCustomerDAOImpl;
+import myBankApp.dao.impl.BankCustomerDAOImpl;
 import myBankApp.exception.BusinessException;
-import myBankApp.model.transactions;
+import myBankApp.model.Transactions;
 
 public class bankAppCustomerTests {
 	
 	
-		bankCustomerDAOImpl testCustomer = new bankCustomerDAOImpl();
+		BankCustomerDAOImpl testCustomer = new BankCustomerDAOImpl();
 		
 	@Test
 	void testCustomerLogin() throws BusinessException {
@@ -21,7 +21,7 @@ public class bankAppCustomerTests {
 	@Test
 	void testPostTransfer() throws BusinessException {
 		
-		transactions dummyEntry = new transactions();
+		Transactions dummyEntry = new Transactions();
 
 		dummyEntry.setAmount(100);
 		dummyEntry.setSender(2);

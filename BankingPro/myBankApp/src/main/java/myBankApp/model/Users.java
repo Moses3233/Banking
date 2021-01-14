@@ -2,7 +2,7 @@ package myBankApp.model;
 
 import java.sql.Date;
 
-public class users {
+public class Users {
 private String fname;
 private String lname;
 private String username;

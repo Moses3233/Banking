@@ -1,6 +1,6 @@
 package myBankApp.model;
 
-public class accounts {
+public class Accounts {
 
 
 	private int acctnum;
@@ -9,7 +9,7 @@ public class accounts {
 	private double balance;
 	private String status;
 	
-	public accounts() {
+	public Accounts() {
 		
 		
 	}

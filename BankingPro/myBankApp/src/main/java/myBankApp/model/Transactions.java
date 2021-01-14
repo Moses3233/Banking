@@ -2,7 +2,7 @@ package myBankApp.model;
 
 import java.sql.Date;
 
-public class transactions {
+public class Transactions {
 
 	private int transnum;
 	private String type;
@@ -12,7 +12,7 @@ public class transactions {
 	private Date date;
 	private String status;
 	
-	public transactions() {
+	public Transactions() {
 		
 		
 	}

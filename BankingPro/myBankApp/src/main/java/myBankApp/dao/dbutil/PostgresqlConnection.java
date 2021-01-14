@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class postgresqlConnection {
+public class PostgresqlConnection {
 	
 	private static Connection connection;
 
-	private postgresqlConnection() {
+	private PostgresqlConnection() {
 		
 	}
 

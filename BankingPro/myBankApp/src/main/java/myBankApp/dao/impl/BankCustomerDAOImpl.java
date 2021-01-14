@@ -13,15 +13,15 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import myBankApp.dao.bankCustomerDAO;
-import myBankApp.dao.dbutil.postgresqlConnection;
+import myBankApp.dao.BankCustomerDAO;
+import myBankApp.dao.dbutil.PostgresqlConnection;
 import myBankApp.exception.BusinessException;
-import myBankApp.model.accounts;
-import myBankApp.model.transactions;
+import myBankApp.model.Accounts;
+import myBankApp.model.Transactions;
 
-public class bankCustomerDAOImpl implements bankCustomerDAO{
+public class BankCustomerDAOImpl implements BankCustomerDAO{
 	
-	Logger log = Logger.getLogger(bankCustomerDAOImpl.class);
+	Logger log = Logger.getLogger(BankCustomerDAOImpl.class);
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
 
@@ -30,7 +30,7 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		List<Integer> acctNumList = new ArrayList<>();
 
 		try {		
-			try(Connection connection=postgresqlConnection.getConnection()){
+			try(Connection connection=PostgresqlConnection.getConnection()){
 				String sql = "SELECT u.username, u.\"password\", u.role FROM \"bankApp\".users u where role = 'Customer' AND u.username = ? AND u.\"password\" = ? ;";
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setString(1, usernameX);
@@ -80,12 +80,12 @@ public class bankCustomerDAOImpl implements bankCustomerDAO{
 		return loginAcctNum;
 	}
 
-	public int postTransfer(transactions transEntry, int accountNumber) throws BusinessException {
+	public int postTransfer(Transactions transEntry, int accountNumber) throws BusinessException {
 
 		int c = 0;
 		double acctBalance = 0.0, sumSent =0.0;
 		
-		try(Connection connection=postgresqlConnection.getConnection()){	
+		try(Connection connection=PostgresqlConnection.getConnection()){	
 		String sql = "select * from \"bankApp\".accounts where acctnum = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, accountNumber);
@@ -129,7 +129,7 @@ return c;
 
 	public int acceptTransfer(int transactionNum) throws BusinessException {
 		int c2 = 0;
-		try(Connection connection=postgresqlConnection.getConnection()){	
+		try(Connection connection=PostgresqlConnection.getConnection()){	
 		
 		//Transaction information	
 		String sql = "select * from \"bankApp\".transactions where transnum = ?;";
@@ -196,10 +196,10 @@ return c;
 	public int accountWithdrawl(int accountNumber, double amount) throws BusinessException {
 		int c = 0;
 		int c1 = 0;
-		accounts oneAccount = new accounts();
+		Accounts oneAccount = new Accounts();
 		
 		
-	try(Connection connection=postgresqlConnection.getConnection()){	
+	try(Connection connection=PostgresqlConnection.getConnection()){	
 	
 		String sql = "select * from \"bankApp\".accounts where acctnum = ?;";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -262,9 +262,9 @@ return c;
 	public int accountDeposit(int accountNumber, double amount) throws BusinessException {
 			int c = 0;
 			int c1 = 0;
-			accounts oneAccount = new accounts();
+			Accounts oneAccount = new Accounts();
 			
-		try(Connection connection=postgresqlConnection.getConnection()){	
+		try(Connection connection=PostgresqlConnection.getConnection()){	
 		
 			
 			String sql = "select * from \"bankApp\".accounts where acctnum = ?;";

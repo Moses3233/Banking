@@ -7,18 +7,19 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import myBankApp.dao.bankCustomerDAO;
-import myBankApp.dao.bankEmployeeDAO;
-import myBankApp.dao.impl.bankCustomerDAOImpl;
-import myBankApp.dao.impl.bankEmployeeDAOImpl;
-import myBankApp.exception.BusinessException;
-import myBankApp.model.accounts;
-import myBankApp.model.transactions;
-import myBankApp.model.users;
 
-public class bankAppMain {
+import myBankApp.exception.BusinessException;
+import myBankApp.model.Accounts;
+import myBankApp.model.Transactions;
+import myBankApp.model.Users;
+import myBankApp.service.BankCustomerServiceDAO;
+import myBankApp.service.BankEmployeeServiceDAO;
+import myBankApp.service.impl.BankCustomerServiceDAOImpl;
+import myBankApp.service.impl.BankEmployeeServiceDAOImpl;
+
+public class BankAppMain {
 	
-	private static Logger log = Logger.getLogger(bankAppMain.class);
+	private static Logger log = Logger.getLogger(BankAppMain.class);
 
 	
 	public static void main(String[] args) {
@@ -30,8 +31,8 @@ public class bankAppMain {
 		int customerOption=0;
 		int employeeOption = 0;
 		
-		bankEmployeeDAO bankEmployeeService = new bankEmployeeDAOImpl();
-		bankCustomerDAO bankCustomerService = new bankCustomerDAOImpl();
+		BankEmployeeServiceDAO bankEmployeeService = new BankEmployeeServiceDAOImpl();
+		BankCustomerServiceDAO bankCustomerService = new BankCustomerServiceDAOImpl();
 						
 		do {
 				log.info("Welcome to the BankApp! Do you already have an account with us?");
@@ -99,7 +100,7 @@ public class bankAppMain {
 							
 						case 3://Post Transfer
 							try {
-								transactions transEntry = new transactions();
+								Transactions transEntry = new Transactions();
 								
 								transEntry.setType("Transfer");
 
@@ -174,7 +175,7 @@ public class bankAppMain {
 						
 						case 1://Create User
 							
-							users newUser = new users();
+							Users newUser = new Users();
 							String email = "", ZIP;
 							int validEmail = 0, validZIP = 0;
 				
@@ -239,7 +240,7 @@ public class bankAppMain {
 							
 							int acctType = 0;
 							double startingBalance = 0.0;
-							accounts newAccount = new accounts();
+							Accounts newAccount = new Accounts();
 							
 							log.info("What is the username the account is linked to?");
 							newAccount.setUsername(sc.nextLine());
@@ -360,7 +361,7 @@ public class bankAppMain {
 			
 			log.info("Let's get an account set up for you");
 			
-			users newUser = new users();
+			Users newUser = new Users();
 			String birthDate, email, ZIP;
 			int validEmail = 0, validZIP = 0;
 			
@@ -425,7 +426,7 @@ public class bankAppMain {
 			
 			int acctType = 0;
 			double startingBalance = 0.0;
-			accounts newAccount = new accounts();
+			Accounts newAccount = new Accounts();
 			
 			log.info("What is the username the account is linked to?");
 			newAccount.setUsername(sc.nextLine());
